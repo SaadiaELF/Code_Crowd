@@ -23,24 +23,19 @@ Post.init(
             allowNull: false,
             defaultValue: DataTypes.NOW,
         },
-        // like: {
-
-        // },
-        // dislike: {
-
-        // },
-        // user_id: {
-
-        // },
-        // comment_id: {
-
-        // },
-        // file_id: {
-
-        // },
-        // image_id: {
-
-        // }
+        like: {
+            type: Datatypes.INTEGER // count
+        },
+        dislike: {
+            type: Datatypes.INTEGER // count
+        },
+        user_id: {
+            type: Datatypes.INTEGER,
+            references: {
+                model: 'user',
+                key: 'id'
+            }
+        }
     },
     {
         sequelize,

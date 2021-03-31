@@ -9,19 +9,32 @@ class Comment extends Model {}
 Comment.init(
     {
         id: {
-
+            type: Datatypes.INTEGER,
+            allowNull: false,
+            primaryKey: true,
+            autoIncrement: true
         },
         content: {
-
+            type: Datatypes.STRING,
+            allowNull: false,
         },
         date: {
-
+            type: Datatypes.DATE,
+            allowNull: false
         },
         user_id: {
-
+            type: Datatypes.INTEGER,
+            references: {
+                model: 'user',
+                key: 'id'
+            }
         },
         post_id: {
-            
+            type: Datatypes.INTEGER,
+            references: {
+                model: 'post',
+                key: 'id'
+            }
         }
     },
     {

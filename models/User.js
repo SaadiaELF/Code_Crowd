@@ -56,21 +56,33 @@ User.init(
             type: Datatypes.STRING,
             allowNull: false
         },
-        // profile_picture: {
-
-        // },
-        // date_of_birth: {
-
-        // },
-        // friend_id: {
-
-        // },
-        // post_id: {
-
-        // },
-        // comment_id: {
-
-        // }
+        profile_picture: {
+            type: Datatypes.BLOB
+        },
+        date_of_birth: {
+            type: Datatypes.DATE
+        },
+        friend_id: {
+            type: Datatypes.INTEGER,
+            references: {
+                model: 'user',
+                key: 'id'
+            }
+        },
+        post_id: {
+            type: Datatypes.INTEGER,
+            references: {
+                model: 'post',
+                key: 'id'
+            }
+        },
+        comment_id: {
+            type: Datatypes.INTEGER,
+            references: {
+                model: 'comment',
+                key: 'id'
+            }
+        }
     },
     {
         hooks: {

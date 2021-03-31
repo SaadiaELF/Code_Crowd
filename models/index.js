@@ -39,14 +39,6 @@ Post.hasMany(Comment, {
     hooks:true
 });
 
-User.hasMany(File, {
-    foreignKey: 'user_id'
-});
-
-File.belongsTo(User, {
-    foreignKey: 'user_id'
-});
-
 Post.hasMany(File, {
     foreignKey: 'post_id',
     onDelete: 'cassade',
@@ -57,14 +49,6 @@ File.belongsTo(Post, {
     foreignKey: 'post_id',
     onDelete: 'cascade',
     hooks:true
-})
-
-User.hasMany(Image, {
-    foreignKey: 'user_id'
-});
-
-Image.belongsTo(User, {
-    foreignKey: 'user_id'
 });
 
 Post.hasMany(Image, {
