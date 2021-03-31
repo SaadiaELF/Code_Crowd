@@ -9,16 +9,27 @@ class File extends Model {}
 File.init(
     {
         id: {
-
+            type: Datatypes.INTEGER,
+            allowNull: false,
+            primaryKey: true,
+            autoIncrement: true
         },
         type: {
-
+            type: DataTypes.STRING,
         },
         name: {
-
+            type: DataTypes.STRING,
         },
-        data: {
-
+        size: {
+            type: Datatypes.INTEGER,
+            allowNull: false
+        },
+        post_id: {
+            type: Datatypes.INTEGER,
+            references: {
+                model: 'post',
+                key: 'id'
+            }
         }
     },
     {
