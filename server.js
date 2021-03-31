@@ -1,5 +1,6 @@
 // Dependencies
 const express = require('express');
+const sequelize = require('./config/connection');
 
 // Require app
 const app = require(express());
@@ -8,4 +9,6 @@ const app = require(express());
 const PORT = process.env.PORT || 8000;
 
 // Make app listen on port
-app.listen(PORT, () => console.log(`Now listening on ${PORT}`));
+sequelize.sync({ force: false }).then(() => {
+    app.listen(PORT, () => console.log(`Now listening on ${PORT}`));
+});
