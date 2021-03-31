@@ -7,7 +7,25 @@ class File extends Model {}
 // Init and create table
 File.init(
     {
+        id: {
 
+        },
+        type: {
+
+        },
+        name: {
+
+        },
+        data: {
+
+        }
+    },
+    {
+        sequelize,
+        timestamps: false,
+        freezeTableName: true,
+        underscored: true,
+        modelName: 'image'
     }
 );
 

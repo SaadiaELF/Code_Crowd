@@ -1,5 +1,6 @@
 // Dependencies
 const { Model, Datatypes } = require('sequelize');
+const sequelize = require('../config/connection');
 
 // Create class
 class Post extends Model { }
@@ -22,24 +23,24 @@ Post.init(
             allowNull: false,
             defaultValue: DataTypes.NOW,
         },
-        like: {
+        // like: {
 
-        },
-        dislike: {
+        // },
+        // dislike: {
 
-        },
-        user_id: {
+        // },
+        // user_id: {
 
-        },
-        comment_id: {
+        // },
+        // comment_id: {
 
-        },
-        file_id: {
+        // },
+        // file_id: {
 
-        },
-        image_id: {
+        // },
+        // image_id: {
 
-        }
+        // }
     },
     {
         sequelize,
