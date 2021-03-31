@@ -1,8 +1,16 @@
 // Dependencies
 const { Model, Datatypes } = require('sequelize');
+const sequelize = require('../config/connection');
+
+// Use bycrypt for password hashing
+const bcrypt = require('bcrypt');
 
 // Create class
-class User extends Model {}
+class User extends Model {
+    checkPassword(loginPw) {
+        return bcrypt.compareSync(loginPw, this.password);
+    }
+}
 
 // Init and create table
 User.init(
@@ -26,14 +34,14 @@ User.init(
             allowNull: false,
             unique: true,
             validate: {
-              isEmail: true,
+                isEmail: true,
             },
         },
         password: {
             type: DataTypes.STRING,
             allowNull: false,
             validate: {
-              len: [8],
+                len: [8],
             },
         },
         programming_languages: {
@@ -65,6 +73,16 @@ User.init(
         // }
     },
     {
+        hooks: {
+            beforeCreate: async (newUserData) => {
+                newUserData.password = await bcrypt.hash(newUserData.password, 10);
+                return newUserData;
+            },
+            beforeUpdate: async (updatedUserData) => {
+                updatedUserData.password = await bcrypt.hash(updatedUserData.password, 10);
+                return updatedUserData;
+            },
+        },
         sequelize,
         timestamps: false,
         freezeTableName: true,

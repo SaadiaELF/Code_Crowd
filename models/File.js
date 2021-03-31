@@ -1,5 +1,6 @@
 // Dependencies
 const { Model, Datatypes } = require('sequelize');
+const sequelize = require('../config/connection');
 
 // Create class
 class File extends Model {}
