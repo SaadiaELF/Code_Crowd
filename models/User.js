@@ -48,6 +48,9 @@ User.init(
             type: Datatypes.STRING,
             allowNull: false
         },
+        // profile_picture: {
+
+        // },
         // date_of_birth: {
 
         // },
