@@ -1,5 +1,5 @@
 // Dependencies
-const { Model, Datatypes } = require('sequelize');
+const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
 // Create class
@@ -9,7 +9,7 @@ class File extends Model {}
 File.init(
     {
         id: {
-            type: Datatypes.INTEGER,
+            type: DataTypes.INTEGER,
             allowNull: false,
             primaryKey: true,
             autoIncrement: true
@@ -21,11 +21,11 @@ File.init(
             type: DataTypes.STRING,
         },
         size: {
-            type: Datatypes.INTEGER,
+            type: DataTypes.INTEGER,
             allowNull: false
         },
         post_id: {
-            type: Datatypes.INTEGER,
+            type: DataTypes.INTEGER,
             references: {
                 model: 'post',
                 key: 'id'
@@ -37,7 +37,7 @@ File.init(
         timestamps: false,
         freezeTableName: true,
         underscored: true,
-        modelName: 'image'
+        modelName: 'file'
     }
 );
 
