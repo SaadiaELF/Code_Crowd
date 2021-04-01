@@ -33,7 +33,9 @@
         <section class="resume-section">
             <div class="resume-section-content">
                {{> post-form}}
-               {{> post-info}}
+               {{#each posts as |post|}}
+               {{> post-info post}}
+               {{/each}}
             </div>
         </section>
 
