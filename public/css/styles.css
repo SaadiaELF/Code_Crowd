@@ -56,7 +56,7 @@ footer p {
 }
 
 @media (min-width: 992px) {
-  body {
+  #page-top{
     padding-top: 0;
     padding-left: 17rem;
   }
