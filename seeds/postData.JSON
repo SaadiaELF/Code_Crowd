@@ -1,0 +1,23 @@
+[
+    {
+      "content": "Interesting article !",
+      "date": "2021-03-24  13:30:00",
+      "like": "5",
+      "dislike": "2",
+      "user_id" : "1"
+    },
+    {
+        "content": "Interesting article !",
+        "date": "2021-03-24  13:30:00",
+        "like": "2",
+        "dislike": "1",
+        "user_id" : "1"
+    },
+    {
+      "content": "Good explanation.",
+      "date": "2021-05-18  00:15:00",
+      "like": "1",
+      "dislike": "2",
+      "user_id" : "1"
+     }
+  ]

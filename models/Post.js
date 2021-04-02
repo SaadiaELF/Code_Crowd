@@ -1,5 +1,5 @@
 // Dependencies
-const { Model, Datatypes } = require('sequelize');
+const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
 // Create class
@@ -9,28 +9,28 @@ class Post extends Model { }
 Post.init(
     {
         id: {
-            type: Datatypes.INTEGER,
+            type: DataTypes.INTEGER,
             allowNull: false,
             primaryKey: true,
             autoIncrement: true
         },
         content: {
-            type: Datatypes.STRING,
+            type: DataTypes.STRING,
             allowNull: false
         },
         date: {
-            type: Datatypes.DATE,
+            type: DataTypes.DATE,
             allowNull: false,
             defaultValue: DataTypes.NOW,
         },
         like: {
-            type: Datatypes.INTEGER // count
+            type: DataTypes.INTEGER // count
         },
         dislike: {
-            type: Datatypes.INTEGER // count
+            type: DataTypes.INTEGER // count
         },
         user_id: {
-            type: Datatypes.INTEGER,
+            type: DataTypes.INTEGER,
             references: {
                 model: 'user',
                 key: 'id'

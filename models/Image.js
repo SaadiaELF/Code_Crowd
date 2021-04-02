@@ -1,5 +1,5 @@
 // Dependencies
-const { Model, Datatypes } = require('sequelize');
+const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
 // Create class
@@ -9,7 +9,7 @@ class Image extends Model { }
 Image.init(
     {
         id: {
-            type: Datatypes.INTEGER,
+            type: DataTypes.INTEGER,
             allowNull: false,
             primaryKey: true,
             autoIncrement: true
@@ -20,11 +20,11 @@ Image.init(
         name: {
             type: DataTypes.STRING,
         },
-        data: {
-            type: DataTypes.BLOB("long"),
-        },
+        // data: {
+        //     type: DataTypes.BLOB("long"),
+        // },
         post_id: {
-            type: Datatypes.INTEGER,
+            type: DataTypes.INTEGER,
             references: {
                 model: 'post',
                 key: 'id'

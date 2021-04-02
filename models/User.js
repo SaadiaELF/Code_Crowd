@@ -1,8 +1,8 @@
 // Dependencies
-const { Model, Datatypes } = require('sequelize');
+const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-// Use bycrypt for password hashing
+// Use bcrypt for password hashing
 const bcrypt = require('bcrypt');
 
 // Create class
@@ -16,17 +16,17 @@ class User extends Model {
 User.init(
     {
         id: {
-            type: Datatypes.INTEGER,
+            type: DataTypes.INTEGER,
             allowNull: false,
             primaryKey: true,
             autoIncrement: true
         },
         first_name: {
-            type: Datatypes.STRING,
+            type: DataTypes.STRING,
             allowNull: false
         },
         last_name: {
-            type: Datatypes.STRING,
+            type: DataTypes.STRING,
             allowNull: false
         },
         email: {
@@ -45,44 +45,31 @@ User.init(
             },
         },
         programming_languages: {
-            type: Datatypes.STRING,
+            type: DataTypes.STRING,
             allowNull: false
         },
         city: {
-            type: Datatypes.STRING,
+            type: DataTypes.STRING,
             allowNull: false
         },
         country: {
-            type: Datatypes.STRING,
+            type: DataTypes.STRING,
             allowNull: false
         },
-        profile_picture: {
-            type: Datatypes.BLOB
-        },
+        // profile_picture: {
+        //     type: DataTypes.BLOB
+        // },
         date_of_birth: {
-            type: Datatypes.DATE
+            type: DataTypes.DATE
         },
-        friend_id: {
-            type: Datatypes.INTEGER,
-            references: {
-                model: 'user',
-                key: 'id'
-            }
-        },
-        post_id: {
-            type: Datatypes.INTEGER,
-            references: {
-                model: 'post',
-                key: 'id'
-            }
-        },
-        comment_id: {
-            type: Datatypes.INTEGER,
-            references: {
-                model: 'comment',
-                key: 'id'
-            }
-        }
+        // friend_id: {
+        //     type: DataTypes.INTEGER,
+        //     references: {
+        //         model: 'user',
+        //         key: 'id'
+        //     }
+        // },
+
     },
     {
         hooks: {

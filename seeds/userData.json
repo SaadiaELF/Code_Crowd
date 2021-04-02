@@ -1,0 +1,25 @@
+[
+    {
+      "first_name": "Sara",
+      "last_name": "Claire",
+      "email": "sara@gmail.com",
+      "password": "12345678",
+      "programming_languages" :"CSS",
+      "city":"London",
+      "country":"UK",
+      "date_of_birth:": "2021-03-24"
+     
+    },
+    {
+        "first_name": "Sally",
+        "last_name": "Claire",
+        "email": "sally@gmail.com",
+        "password": "12345678",
+        "programming_languages" :"CSS",
+        "city":"London",
+        "country":"UK",
+        "date_of_birth:": "2021-03-24  13:30:00"
+       
+      }
+
+  ]

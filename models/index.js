@@ -7,6 +7,7 @@ const Image = require('./Image');
 const Comment = require('./Comment');
 
 // Define the relationships between the models
+
 User.hasMany(Post, {
     foreignKey: 'user_id'
 });
@@ -41,7 +42,7 @@ Post.hasMany(Comment, {
 
 Post.hasMany(File, {
     foreignKey: 'post_id',
-    onDelete: 'cassade',
+    onDelete: 'cascade',
     hooks:true
 });
 
