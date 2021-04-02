@@ -9,10 +9,9 @@ class Image extends Model { }
 Image.init(
     {
         id: {
-            type: DataTypes.INTEGER,
+            type: DataTypes.UUID,
             allowNull: false,
-            primaryKey: true,
-            autoIncrement: true
+            primaryKey: true
         },
         type: {
             type: DataTypes.STRING,
@@ -24,7 +23,7 @@ Image.init(
         //     type: DataTypes.BLOB("long"),
         // },
         post_id: {
-            type: DataTypes.INTEGER,
+            type: DataTypes.UUID,
             references: {
                 model: 'post',
                 key: 'id'

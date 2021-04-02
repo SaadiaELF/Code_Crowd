@@ -9,10 +9,9 @@ class File extends Model {}
 File.init(
     {
         id: {
-            type: DataTypes.INTEGER,
+            type: DataTypes.UUID,
             allowNull: false,
-            primaryKey: true,
-            autoIncrement: true
+            primaryKey: true
         },
         type: {
             type: DataTypes.STRING,
@@ -25,7 +24,7 @@ File.init(
             allowNull: false
         },
         post_id: {
-            type: DataTypes.INTEGER,
+            type: DataTypes.UUID,
             references: {
                 model: 'post',
                 key: 'id'
