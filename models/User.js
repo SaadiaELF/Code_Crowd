@@ -16,10 +16,9 @@ class User extends Model {
 User.init(
     {
         id: {
-            type: DataTypes.INTEGER,
+            type: DataTypes.UUID,
             allowNull: false,
-            primaryKey: true,
-            autoIncrement: true
+            primaryKey: true
         },
         first_name: {
             type: DataTypes.STRING,
@@ -63,7 +62,7 @@ User.init(
             type: DataTypes.DATE
         },
         // friend_id: {
-        //     type: DataTypes.INTEGER,
+        //     type: DataTypes.UUID,
         //     references: {
         //         model: 'user',
         //         key: 'id'

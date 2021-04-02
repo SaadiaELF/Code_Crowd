@@ -9,10 +9,9 @@ class Comment extends Model {}
 Comment.init(
     {
         id: {
-            type: DataTypes.INTEGER,
+            type: DataTypes.UUID,
             allowNull: false,
-            primaryKey: true,
-            autoIncrement: true
+            primaryKey: true
         },
         content: {
             type: DataTypes.STRING,
@@ -23,14 +22,14 @@ Comment.init(
             allowNull: false
         },
         user_id: {
-            type: DataTypes.INTEGER,
+            type: DataTypes.UUID,
             references: {
                 model: 'user',
                 key: 'id'
             }
         },
         post_id: {
-            type: DataTypes.INTEGER,
+            type: DataTypes.UUID,
             references: {
                 model: 'post',
                 key: 'id'
