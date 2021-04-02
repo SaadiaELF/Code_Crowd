@@ -56,7 +56,7 @@ footer p {
 }
 
 @media (min-width: 992px) {
-  #page-top{
+  #profile-page{
     padding-top: 0;
     padding-left: 17rem;
   }
@@ -157,7 +157,7 @@ p.lead {
   font-size: 3rem;
 }
 
-section.resume-section {
+section.profile-section {
   display: flex;
   align-items: center;
   padding-left: 1rem;
@@ -166,17 +166,17 @@ section.resume-section {
   padding-bottom: 5rem;
   max-width: 75rem;
 }
-section.resume-section .resume-section-content {
+section.profile-section .profile-section-content {
   width: 100%;
 }
 
 @media (min-width: 768px) {
-  section.resume-section {
+  section.profile-section {
     min-height: 100vh;
   }
 }
 @media (min-width: 992px) {
-  section.resume-section {
+  section.profile-section {
     padding-left: 3rem;
     padding-right: 3rem;
     padding-top: 5rem;
