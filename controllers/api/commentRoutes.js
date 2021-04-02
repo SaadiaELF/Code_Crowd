@@ -9,7 +9,7 @@ router.get('/', async (req, res) => {
         const commentData = await Comment.findAll();
 
         if (!commentData) {
-            res.status(404).json({ message: 'No post found with this id' });
+            res.status(404).json({ message: 'No comment found with this id' });
         }
     }
 
