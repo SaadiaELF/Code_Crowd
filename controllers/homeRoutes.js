@@ -4,6 +4,8 @@ const { User, Post, File, Image, Comment } = require('../models');
 
 // DEFINE ALL ROUTES BELOW
 
+
+
 // Render the main content on the homepage
 router.get('/', async (req, res) => {
     try {
@@ -89,9 +91,23 @@ router.get('/post/:id', async (req, res) => {
         });
     }
 
+
+router.get('/profile', async (req, res) => {
+    try {
+        const postData = await Post.findAll({
+          
+            include: [
+                {
+                    model: User,
+                    attributes: ['id', 'first_name', 'last_name'],
+                }],
+        });
+        const posts = postData.map((post) => post.get({ plain: true }));
+        console.log(posts)
+        res.render('profile', { posts });
+    }
     catch (err) {
-        console.log(err);
-        res.status(500).json(err);
+        res.status(500).json("Error: Cannot render the page");
     }
 });
 
@@ -116,6 +132,7 @@ router.get('/signup', (req, res) => {
     }
     res.render('signup');
 });
+
 
 // Export the module
 module.exports = router;
