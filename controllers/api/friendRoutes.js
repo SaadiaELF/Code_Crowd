@@ -10,11 +10,7 @@ router.get('/search', withAuth, async (req, res) => {
             include: [
                 {
                     model: User,
-                    attributes: ['name']
-                },
-                {
-                    model: Image,
-                    attributes: ['id'] // What other attributes?
+                    attributes: ['first_name', 'last_name', 'programming_languages', 'profile_picture']
                 }
             ]
         });

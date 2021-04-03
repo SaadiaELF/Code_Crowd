@@ -13,7 +13,7 @@ router.get('/', async (req, res) => {
             include: [
                 {
                     model: User,
-                    attributes: ['name']
+                    attributes: ['first_name', 'last_name', 'programming_languages', 'profile_picture']
                 },
                 {
                     model: Comment,
@@ -89,7 +89,7 @@ router.get('/post/:id', async (req, res) => {
             loggedIn: req.session.loggedIn
         });
     }
-    
+
     catch (err) {
         console.log(err);
         res.status(500).json(err);
