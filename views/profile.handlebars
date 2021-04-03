@@ -1,0 +1,13 @@
+<main id="profile-page">
+    {{> side-navbar}}
+    <div class="container-fluid p-0">
+        <section class="profile-section">
+            <div class="profile-section-content">
+                {{> post-form}}
+                {{#each posts as |post|}}
+                {{> post-info post}}
+                {{/each}}
+            </div>
+        </section>
+
+</main>
