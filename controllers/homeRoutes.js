@@ -5,7 +5,6 @@ const { User, Post, File, Image, Comment } = require('../models');
 // DEFINE ALL ROUTES BELOW
 
 
-
 // Render the main content on the homepage
 router.get('/', async (req, res) => {
     try {
@@ -90,12 +89,18 @@ router.get('/post/:id', async (req, res) => {
             loggedIn: req.session.loggedIn
         });
     }
+    
+    catch (err) {
+        console.log(err);
+        res.status(500).json(err);
+    }
+});
 
 
 router.get('/profile', async (req, res) => {
     try {
         const postData = await Post.findAll({
-          
+
             include: [
                 {
                     model: User,
