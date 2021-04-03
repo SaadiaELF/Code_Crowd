@@ -56,9 +56,9 @@ User.init(
             type: DataTypes.STRING,
             allowNull: false
         },
-        // profile_picture: {
-        //     type: DataTypes.BLOB
-        // },
+        profile_picture: {
+            type: DataTypes.STRING,
+        },
         date_of_birth: {
             type: DataTypes.DATE
         },
