@@ -60,15 +60,7 @@ User.init(
         // },
         date_of_birth: {
             type: DataTypes.DATE
-        },
-        // friend_id: {
-        //     type: DataTypes.UUID,
-        //     references: {
-        //         model: 'user',
-        //         key: 'id'
-        //     }
-        // },
-
+        }
     },
     {
         hooks: {
