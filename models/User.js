@@ -1,6 +1,7 @@
 // Dependencies
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
+const Sequelize = require('sequelize');
 
 // Use bcrypt for password hashing
 const bcrypt = require('bcrypt');
@@ -17,6 +18,7 @@ User.init(
     {
         id: {
             type: DataTypes.UUID,
+            defaultValue: Sequelize.UUIDV4,
             allowNull: false,
             primaryKey: true
         },
@@ -56,7 +58,7 @@ User.init(
             allowNull: false
         },
         profile_picture: {
-            type: DataTypes.STRING
+            type: DataTypes.STRING,
         },
         date_of_birth: {
             type: DataTypes.DATE

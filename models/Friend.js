@@ -1,16 +1,17 @@
 // Dependencies
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
-
+const Sequelize = require('sequelize');
 
 // Create class
-class Friend extends Model { }
+class Friend extends Model {}
 
 // Init and create table
 Friend.init(
     {
         id: {
             type: DataTypes.UUID,
+            defaultValue: Sequelize.UUIDV4,
             allowNull: false,
             primaryKey: true
         },
@@ -20,6 +21,7 @@ Friend.init(
                 model: 'user',
                 key: 'id'
             }
+
         },
         friend_id: {
             type: DataTypes.UUID,

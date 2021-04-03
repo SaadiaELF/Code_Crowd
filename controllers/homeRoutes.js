@@ -4,7 +4,6 @@ const { User, Post, File, Image, Comment } = require('../models');
 
 // DEFINE ALL ROUTES BELOW
 
-
 // Render the main content on the homepage
 router.get('/', async (req, res) => {
     try {
@@ -88,7 +87,17 @@ router.get('/post/:id', async (req, res) => {
             post,
             loggedIn: req.session.loggedIn
         });
+    } catch (err) {
+        res.status(500).json("Error: Cannot render the page");
     }
+
+});
+router.get('/profile', async (req, res) => {
+    try {
+        const postData = await Post.findAll({
+            where: {
+                user_id: "2e545761-ed1b-4c78-baf5-66d4fffe1799"
+            },
 
     catch (err) {
         console.log(err);
@@ -97,24 +106,31 @@ router.get('/post/:id', async (req, res) => {
 });
 
 
-router.get('/profile', async (req, res) => {
+router.put('/profile/:id', async (req, res) => {
+    // update post by id
     try {
-        const postData = await Post.findAll({
+        console.log(req.body.imageUrl);
+        const userData = await User.update({
+            profile_picture: req.body.imageUrl
+        },
+            {
+                where: {
+                    id: "2e545761-ed1b-4c78-baf5-66d4fffe1799"
+                },
+            });
 
-            include: [
-                {
-                    model: User,
-                    attributes: ['id', 'first_name', 'last_name'],
-                }],
-        });
-        const posts = postData.map((post) => post.get({ plain: true }));
-        console.log(posts)
-        res.render('profile', { posts });
-    }
-    catch (err) {
-        res.status(500).json("Error: Cannot render the page");
+        if (!userData) {
+            res.status(404).json({ message: 'No post found with this id!' });
+            return;
+        }
+
+        res.status(200).render('profile');
+    } catch (err) {
+        res.status(500).json("Error: Cannot update the post");
     }
 });
+
+
 
 // Render the login
 // If the user is logged in, redirect to the home page

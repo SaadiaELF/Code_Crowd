@@ -78,4 +78,4 @@ User.belongsToMany(User, {
 });
 
 // Export the module
-module.exports = { User, Post, File, Image, Comment };
+module.exports = { User, Post, File, Image, Comment, Friend };
