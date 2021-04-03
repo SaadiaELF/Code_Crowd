@@ -3,6 +3,7 @@ const router = require('express').Router();
 const { User, Post, File, Image, Comment } = require('../models');
 
 // DEFINE ALL ROUTES BELOW
+
 // Render the main content on the homepage
 router.get('/', async (req, res) => {
     try {
@@ -11,7 +12,7 @@ router.get('/', async (req, res) => {
             include: [
                 {
                     model: User,
-                    attributes: ['name']
+                    attributes: ['first_name', 'last_name', 'programming_languages', 'profile_picture']
                 },
                 {
                     model: Comment,
@@ -97,21 +98,13 @@ router.get('/profile', async (req, res) => {
             where: {
                 user_id: "2e545761-ed1b-4c78-baf5-66d4fffe1799"
             },
-            include: [
-                {
-                    model: User,
-                    attributes: ['id', 'first_name', 'last_name', 'profile_picture'],
-                }],
-        });
 
-        const posts = postData.map((post) => post.get({ plain: true }));
-        console.log(posts)
-         res.render('profile', {posts});
-    }
     catch (err) {
-        res.status(500).json("Error: Cannot render the page");
+        console.log(err);
+        res.status(500).json(err);
     }
 });
+
 
 router.put('/profile/:id', async (req, res) => {
     // update post by id
