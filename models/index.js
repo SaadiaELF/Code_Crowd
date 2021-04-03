@@ -65,14 +65,16 @@ Image.belongsTo(Post, {
     hooks:true
 });
 
-User.hasMany(User, {
+User.belongsToMany(User, {
     through: Friend,
-    foreignKey: 'friend_id'
+    foreignKey: 'friend_id',
+    as : "User_Friend"
 });
 
-User.hasMany(User, {
+User.belongsToMany(User, {
     through: Friend,
-    foreignKey: 'user_id'
+    foreignKey: 'user_id',
+    as : "Friend"
 });
 
 // Export the module
