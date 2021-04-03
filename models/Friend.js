@@ -6,14 +6,14 @@ const sequelize = require('../config/connection');
 const bcrypt = require('bcrypt');
 
 // Create class
-class User extends Model {
+class Friend extends Model {
     checkPassword(loginPw) {
         return bcrypt.compareSync(loginPw, this.password);
     }
 }
 
 // Init and create table
-User.init(
+Friend.init(
     {
         id: {
             type: DataTypes.UUID,
@@ -55,30 +55,29 @@ User.init(
             type: DataTypes.STRING,
             allowNull: false
         },
-        profile_picture: {
-            type: DataTypes.STRING,
-        },
+        // profile_picture: {
+        //     type: DataTypes.BLOB
+        // },
         date_of_birth: {
             type: DataTypes.DATE
         },
-        // friend_id: {
-        //     type: DataTypes.UUID,
-        //     references: {
-        //         model: 'user',
-        //         key: 'id'
-        //     }
-        // },
-
+        friend_id: {
+            type: DataTypes.UUID,
+            references: {
+                model: 'user',
+                key: 'id'
+            }
+        }
     },
     {
         hooks: {
-            beforeCreate: async (newUserData) => {
-                newUserData.password = await bcrypt.hash(newUserData.password, 10);
-                return newUserData;
+            beforeCreate: async (newFriendData) => {
+                newFriendData.password = await bcrypt.hash(newFriendData.password, 10);
+                return newFriendData;
             },
-            beforeUpdate: async (updatedUserData) => {
-                updatedUserData.password = await bcrypt.hash(updatedUserData.password, 10);
-                return updatedUserData;
+            beforeUpdate: async (updatedFriendData) => {
+                updatedFriendData.password = await bcrypt.hash(updatedFriendData.password, 10);
+                return updatedFriendData;
             },
         },
         sequelize,
@@ -90,4 +89,4 @@ User.init(
 );
 
 // Export model
-module.exports = User;
+module.exports = Friend;
