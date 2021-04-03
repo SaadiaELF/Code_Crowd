@@ -3,7 +3,7 @@ const path = require('path');
 const express = require('express');
 const session = require('express-session');
 const exphbs = require('express-handlebars');
-const multer  = require('multer');
+
 
 const routes = require ('./controllers');
 const helpers = require ('./utils/helpers.js');
@@ -17,7 +17,7 @@ const app = express();
 // Port
 const PORT = process.env.PORT || 8000;
 
-var upload = multer({ dest: 'uploads/' });
+
 
 const hbs = exphbs.create({ helpers });
 
@@ -48,7 +48,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(routes);
 
 // Make app listen on port
-sequelize.sync({ force: false }).then(() => {
+sequelize.sync({ force: false}).then(() => {
 
     app.listen(PORT, () => console.log(`Now listening on port: ${PORT}`));
 });

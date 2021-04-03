@@ -8,7 +8,7 @@ var myWidget = cloudinary.createUploadWidget({
         const imageUrl = result.info.url;
         console.log(imageUrl);
         async function fetchAsync() {
-            const response = await fetch('/profile/1', {
+            const response = await fetch('/profile/2e545761-ed1b-4c78-baf5-66d4fffe1799', {
                 method: 'PUT',
                 body: JSON.stringify({ imageUrl }),
                 headers: { 'Content-Type': 'application/json' },

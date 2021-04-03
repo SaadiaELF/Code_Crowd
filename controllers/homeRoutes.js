@@ -95,7 +95,7 @@ router.get('/profile', async (req, res) => {
     try {
         const postData = await Post.findAll({
             where: {
-                user_id: 1
+                user_id: "2e545761-ed1b-4c78-baf5-66d4fffe1799"
             },
             include: [
                 {
@@ -122,7 +122,7 @@ router.put('/profile/:id', async (req, res) => {
         },
             {
                 where: {
-                    id: "1"
+                    id: "2e545761-ed1b-4c78-baf5-66d4fffe1799"
                 },
             });
 
