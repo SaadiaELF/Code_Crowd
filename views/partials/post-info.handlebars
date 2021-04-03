@@ -1,7 +1,7 @@
 <div class="row d-flex justify-content-center mb-3">
     <div class="post-card card w-75">
         <div class="card-header">
-            <img id="profile-img" src="" class="rounded float-left" alt="profile-img">
+            <img id="profile-img" src={{user.profile_picture}} class="rounded float-left" alt="profile-img">
             <!-- <h5 id="name-surname" class="float-left pl-3">Name Surname</h5> -->
             <ul id="btn-list" class="float-left pl-2">
                 <li>
@@ -14,7 +14,7 @@
         </div>
         <div class="card-body">
             <p class="card-text">{{content}}</p>
-            <img id="post-img" src="" class="img-thumbnail rounded mx-auto d-block" alt="post-img">
+            {{!-- <img id="post-img" src="" class="img-thumbnail rounded mx-auto d-block" alt="post-img">
             <div class="input-group mt-3 mb-3 justify-content-center">
                 <div class="input-group-prepend">
                     <span class="input-group-text" id="file-name">File-name</span>
@@ -22,7 +22,7 @@
                 <div class="input-group-append">
                     <button class="btn btn-outline-secondary" type="button" id="download">Download</button>
                 </div>
-            </div>
+            </div> --}}
         </div>
         <div class="card-footer">
             <a href="#" class="card-link"><i class="far fa-thumbs-up"></i> {{like}}</a>
