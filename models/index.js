@@ -5,6 +5,7 @@ const Post = require('./Post');
 const File = require('./File');
 const Image = require('./Image');
 const Comment = require('./Comment');
+const Friend = require('./Friend');
 
 // Define the relationships between the models
 
@@ -62,6 +63,16 @@ Image.belongsTo(Post, {
     foreignKey: 'post_id',
     onDelete: 'cascade',
     hooks:true
+});
+
+User.hasMany(User, {
+    through: Friend,
+    foreignKey: 'friend_id'
+});
+
+User.hasMany(User, {
+    through: Friend,
+    foreignKey: 'user_id'
 });
 
 // Export the module
