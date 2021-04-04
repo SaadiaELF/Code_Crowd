@@ -96,12 +96,21 @@ router.get('/profile', async (req, res) => {
     try {
         const postData = await Post.findAll({
             where: {
-                user_id: "2e545761-ed1b-4c78-baf5-66d4fffe1799"
-            }
+                user_id: "bcec3b1b-3814-4a4b-b27d-1b3aca3f4097"
+            },
+            order: [
+                ['date', 'DESC'],
+            ],
+            include: [
+                {
+                    model: User,
+                    attributes: ['id', 'first_name', 'last_name', 'profile_picture'],
+                },
+            ],
         });
         const posts = postData.map((post) => post.get({ plain: true }));
-        // console.log(posts)
-         res.render('profile', {posts});
+        console.log(posts)
+        res.render('profile', { posts });
     }
     catch (err) {
         console.log(err);
@@ -119,7 +128,7 @@ router.put('/profile/:id', async (req, res) => {
         },
             {
                 where: {
-                    id: "2e545761-ed1b-4c78-baf5-66d4fffe1799"
+                    id: "bcec3b1b-3814-4a4b-b27d-1b3aca3f4097"
                 },
             });
 
