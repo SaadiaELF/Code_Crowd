@@ -24,6 +24,12 @@ Post.init(
             allowNull: false,
             defaultValue: DataTypes.NOW,
         },
+        screenshot: {
+            type: DataTypes.STRING,
+        },
+        file :{
+            type: DataTypes.STRING,
+        },
         like: {
             type: DataTypes.INTEGER // count
         },
