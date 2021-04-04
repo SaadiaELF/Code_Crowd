@@ -15,15 +15,9 @@ Image.init(
             allowNull: false,
             primaryKey: true
         },
-        type: {
+        url: {
             type: DataTypes.STRING,
         },
-        name: {
-            type: DataTypes.STRING,
-        },
-        // data: {
-        //     type: DataTypes.BLOB("long"),
-        // },
         post_id: {
             type: DataTypes.UUID,
             references: {
