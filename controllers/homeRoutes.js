@@ -96,7 +96,7 @@ router.get('/profile', async (req, res) => {
     try {
         const postData = await Post.findAll({
             where: {
-                user_id: "bcec3b1b-3814-4a4b-b27d-1b3aca3f4097"
+                user_id: "89c4da20-a560-404d-8441-29287191c5ca"
             },
             order: [
                 ['date', 'DESC'],
@@ -128,7 +128,7 @@ router.put('/profile/:id', async (req, res) => {
         },
             {
                 where: {
-                    id: "bcec3b1b-3814-4a4b-b27d-1b3aca3f4097"
+                    id: "89c4da20-a560-404d-8441-29287191c5ca"
                 },
             });
 
