@@ -21,7 +21,6 @@ Friend.init(
                 model: 'user',
                 key: 'id'
             }
-
         },
         friend_id: {
             type: DataTypes.UUID,

@@ -2,8 +2,6 @@
 // Require all the models
 const User = require('./User');
 const Post = require('./Post');
-const File = require('./File');
-const Image = require('./Image');
 const Comment = require('./Comment');
 const Friend = require('./Friend');
 
@@ -41,30 +39,6 @@ Post.hasMany(Comment, {
     hooks:true
 });
 
-Post.hasMany(File, {
-    foreignKey: 'post_id',
-    onDelete: 'cascade',
-    hooks:true
-});
-
-File.belongsTo(Post, {
-    foreignKey: 'post_id',
-    onDelete: 'cascade',
-    hooks:true
-});
-
-Post.hasMany(Image, {
-    foreignKey: 'post_id',
-    onDelete: 'cascade',
-    hooks:true
-});
-
-Image.belongsTo(Post, {
-    foreignKey: 'post_id',
-    onDelete: 'cascade',
-    hooks:true
-});
-
 User.belongsToMany(User, {
     through: Friend,
     foreignKey: 'friend_id',
@@ -78,4 +52,4 @@ User.belongsToMany(User, {
 });
 
 // Export the module
-module.exports = { User, Post, File, Image, Comment, Friend };
+module.exports = { User, Post, Comment, Friend };

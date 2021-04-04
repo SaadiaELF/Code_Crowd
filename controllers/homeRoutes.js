@@ -96,9 +96,22 @@ router.get('/profile', async (req, res) => {
     try {
         const postData = await Post.findAll({
             where: {
-                user_id: "2e545761-ed1b-4c78-baf5-66d4fffe1799"
+                user_id: "89c4da20-a560-404d-8441-29287191c5ca"
             },
-
+            order: [
+                ['date', 'DESC'],
+            ],
+            include: [
+                {
+                    model: User,
+                    attributes: ['id', 'first_name', 'last_name', 'profile_picture'],
+                },
+            ],
+        });
+        const posts = postData.map((post) => post.get({ plain: true }));
+        console.log(posts)
+        res.render('profile', { posts });
+    }
     catch (err) {
         console.log(err);
         res.status(500).json(err);
@@ -109,13 +122,13 @@ router.get('/profile', async (req, res) => {
 router.put('/profile/:id', async (req, res) => {
     // update post by id
     try {
-        console.log(req.body.imageUrl);
+        // console.log(req.body.imageUrl);
         const userData = await User.update({
             profile_picture: req.body.imageUrl
         },
             {
                 where: {
-                    id: "2e545761-ed1b-4c78-baf5-66d4fffe1799"
+                    id: "89c4da20-a560-404d-8441-29287191c5ca"
                 },
             });
 
@@ -154,6 +167,26 @@ router.get('/signup', (req, res) => {
     res.render('signup');
 });
 
+router.put('/profile', async (req, res) => {
+    // update post by id
+    try {
+        const postData = await Post.update({
+            like: req.body.like,
+        },
+            {
+                where: {
+                    id: "0f10edf6-92cc-47e3-9460-c23f5bb3aa12"
+                },
+            });
+        if (!postData) {
+            res.status(404).json({ message: 'No post found with this id!' });
+            return;
+        }
 
+        res.status(200).json(postData);
+    } catch (err) {
+        res.status(500).json("Error: Cannot update the post");
+    }
+});
 // Export the module
 module.exports = router;
