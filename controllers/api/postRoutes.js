@@ -21,6 +21,30 @@ router.post('/', async (req, res) => {
 
 });
 
+router.put('/:id', async (req, res) => {
+    // update post by id
+      try {
+        // console.log(req.body.imageUrl);
+        const postData = await Post.update({
+            like: req.body.like
+        },
+            {
+                where: {
+                    id: req.params.id,
+                },
+            });
+
+        if (!postData) {
+            res.status(404).json({ message: 'No post found with this id!' });
+            return;
+        }
+
+        res.status(200).json(postData);
+    } catch (err) {
+        res.status(500).json("Error: Cannot update the post");
+    }
+});
+
 // Delete an existing post, by specific id
 router.delete('/:id', async (req, res) => {
     // delete post by id
