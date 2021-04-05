@@ -105,6 +105,13 @@ router.get('/profile', async (req, res) => {
                 {
                     model: User,
                 },
+                {
+                    model: Comment,
+                    include: {
+                        model: User,
+                        attributes: ['id', 'first_name', 'last_name']
+                      },
+                },
             ],
         });
         const posts = postData.map((post) => post.get({ plain: true }));

@@ -20,15 +20,15 @@ router.get('/', async (req, res) => {
 });
 
 // Create comment
-router.post('/', withAuth, async (req, res) => {
+router.post('/', async (req, res) => {
     try {
         const commentData = await Comment.create({
             // ...req.body,
             content: req.body.content,
-            user_id: req.session.user_id,
-            post_id: req.body.post_id
+            user_id: req.body.user_id,
+            post_id: req.body.post_id,
         })
-
+        console.log(commentData)
         res.status(200).json(commentData);
     }
 
