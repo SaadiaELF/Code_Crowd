@@ -9,6 +9,8 @@ router.post('/', async (req, res) => {
     try {
         const newPost = await Post.create({
             content: req.body.content,
+            screenshot: req.body.screenshot,
+            file: req.body.file,
             user_id: '89c4da20-a560-404d-8441-29287191c5ca',
         });
 

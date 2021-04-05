@@ -108,7 +108,6 @@ router.get('/profile', async (req, res) => {
             ],
         });
         const posts = postData.map((post) => post.get({ plain: true }));
-        console.log(posts)
         res.render('profile', { posts });
     }
     catch (err) {
