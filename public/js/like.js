@@ -9,7 +9,7 @@ const likeBtnHandler = async (event) => {
 
   if (like && id) {
     // Send a POST request to the API endpoint
-    const response = await fetch(`/api/post/${id}`, {
+    const response = await fetch(`/api/post/like/${id}`, {
       method: 'PUT',
       body: JSON.stringify({ id, like }),
       headers: { 'Content-Type': 'application/json' },
