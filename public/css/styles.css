@@ -234,3 +234,9 @@ section.profile-section .profile-section-content {
       max-width: 100%;
     }
   }
+  pre code {
+    background-color: #eee;
+    border: 1px solid #999;
+    display: block;
+    padding: 20px;
+  }

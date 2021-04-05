@@ -29,3 +29,21 @@ document.getElementById("upload_widget").addEventListener("click", async functio
     await myWidget.open();
 
 }, false);
+
+var myWidget = cloudinary.createUploadWidget({
+    cloudName: 'birminghambcs',
+    uploadPreset: 'gbw7i3gr'
+}, (error, result) => {
+    if (!error && result && result.event === "success") {
+        console.log('Done! Here is the image info: ', result.info);
+        console.log(result.info.secure_url);
+        document.getElementById("img_preview").src = result.info.secure_url;
+        document.getElementById('screenshot_url').innerHTML = result.info.secure_url
+    }
+}
+)
+document.getElementById("upload_img_widget").addEventListener("click", async function () {
+    await myWidget.open();
+
+}, false);
+
