@@ -3,10 +3,7 @@ var myWidget = cloudinary.createUploadWidget({
     uploadPreset: 'gbw7i3gr'
 }, (error, result) => {
     if (!error && result && result.event === "success") {
-        console.log('Done! Here is the image info: ', result.info);
-        // console.log(result.info.url);
         const imageUrl = result.info.url;
-        console.log(imageUrl);
         async function fetchAsync() {
             const response = await fetch('/profile/bcec3b1b-3814-4a4b-b27d-1b3aca3f4097', {
                 method: 'PUT',
@@ -35,8 +32,7 @@ var myWidget = cloudinary.createUploadWidget({
     uploadPreset: 'gbw7i3gr'
 }, (error, result) => {
     if (!error && result && result.event === "success") {
-        console.log('Done! Here is the image info: ', result.info);
-        console.log(result.info.secure_url);
+        document.getElementById("img_preview").classList.remove("hide");
         document.getElementById("img_preview").src = result.info.secure_url;
         document.getElementById('screenshot_url').innerHTML = result.info.secure_url
     }
