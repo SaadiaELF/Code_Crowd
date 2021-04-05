@@ -1,22 +1,17 @@
 // Dependencies
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
-
-// Use bcrypt for password hashing
-const bcrypt = require('bcrypt');
+const Sequelize = require('sequelize');
 
 // Create class
-class Friend extends Model {
-    checkPassword(loginPw) {
-        return bcrypt.compareSync(loginPw, this.password);
-    }
-}
+class Friend extends Model {}
 
 // Init and create table
 Friend.init(
     {
         id: {
             type: DataTypes.UUID,
+            defaultValue: Sequelize.UUIDV4,
             allowNull: false,
             primaryKey: true
         },
@@ -36,21 +31,11 @@ Friend.init(
         }
     },
     {
-        hooks: {
-            beforeCreate: async (newFriendData) => {
-                newFriendData.password = await bcrypt.hash(newFriendData.password, 10);
-                return newFriendData;
-            },
-            beforeUpdate: async (updatedFriendData) => {
-                updatedFriendData.password = await bcrypt.hash(updatedFriendData.password, 10);
-                return updatedFriendData;
-            },
-        },
         sequelize,
         timestamps: false,
         freezeTableName: true,
         underscored: true,
-        modelName: 'user'
+        modelName: 'friend'
     }
 );
 

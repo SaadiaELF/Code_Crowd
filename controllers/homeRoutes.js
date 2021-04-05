@@ -4,8 +4,6 @@ const { User, Post, File, Image, Comment } = require('../models');
 
 // DEFINE ALL ROUTES BELOW
 
-
-
 // Render the main content on the homepage
 router.get('/', async (req, res) => {
     try {
@@ -14,7 +12,7 @@ router.get('/', async (req, res) => {
             include: [
                 {
                     model: User,
-                    attributes: ['name']
+                    attributes: ['first_name', 'last_name', 'programming_languages', 'profile_picture']
                 },
                 {
                     model: Comment,
@@ -89,27 +87,63 @@ router.get('/post/:id', async (req, res) => {
             post,
             loggedIn: req.session.loggedIn
         });
+    } catch (err) {
+        res.status(500).json("Error: Cannot render the page");
     }
 
-
+});
 router.get('/profile', async (req, res) => {
     try {
         const postData = await Post.findAll({
-          
+            where: {
+                user_id: "89c4da20-a560-404d-8441-29287191c5ca"
+            },
+            order: [
+                ['date', 'DESC'],
+            ],
             include: [
                 {
                     model: User,
-                    attributes: ['id', 'first_name', 'last_name'],
-                }],
+                    attributes: ['id', 'first_name', 'last_name', 'profile_picture'],
+                },
+            ],
         });
         const posts = postData.map((post) => post.get({ plain: true }));
         console.log(posts)
         res.render('profile', { posts });
     }
     catch (err) {
-        res.status(500).json("Error: Cannot render the page");
+        console.log(err);
+        res.status(500).json(err);
     }
 });
+
+
+router.put('/profile/:id', async (req, res) => {
+    // update post by id
+    try {
+        // console.log(req.body.imageUrl);
+        const userData = await User.update({
+            profile_picture: req.body.imageUrl
+        },
+            {
+                where: {
+                    id: "89c4da20-a560-404d-8441-29287191c5ca"
+                },
+            });
+
+        if (!userData) {
+            res.status(404).json({ message: 'No post found with this id!' });
+            return;
+        }
+
+        res.status(200).render('profile');
+    } catch (err) {
+        res.status(500).json("Error: Cannot update the post");
+    }
+});
+
+
 
 // Render the login
 // If the user is logged in, redirect to the home page
@@ -133,6 +167,26 @@ router.get('/signup', (req, res) => {
     res.render('signup');
 });
 
+router.put('/profile', async (req, res) => {
+    // update post by id
+    try {
+        const postData = await Post.update({
+            like: req.body.like,
+        },
+            {
+                where: {
+                    id: "0f10edf6-92cc-47e3-9460-c23f5bb3aa12"
+                },
+            });
+        if (!postData) {
+            res.status(404).json({ message: 'No post found with this id!' });
+            return;
+        }
 
+        res.status(200).json(postData);
+    } catch (err) {
+        res.status(500).json("Error: Cannot update the post");
+    }
+});
 // Export the module
 module.exports = router;

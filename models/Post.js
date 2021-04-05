@@ -1,6 +1,7 @@
 // Dependencies
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
+const Sequelize = require('sequelize');
 
 // Create class
 class Post extends Model { }
@@ -10,6 +11,7 @@ Post.init(
     {
         id: {
             type: DataTypes.UUID,
+            defaultValue: Sequelize.UUIDV4,
             allowNull: false,
             primaryKey: true
         },
@@ -21,6 +23,12 @@ Post.init(
             type: DataTypes.DATE,
             allowNull: false,
             defaultValue: DataTypes.NOW,
+        },
+        screenshot: {
+            type: DataTypes.STRING,
+        },
+        file :{
+            type: DataTypes.STRING,
         },
         like: {
             type: DataTypes.INTEGER // count

@@ -1,6 +1,7 @@
 // Dependencies
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
+const Sequelize = require('sequelize');
 
 // Use bcrypt for password hashing
 const bcrypt = require('bcrypt');
@@ -17,6 +18,7 @@ User.init(
     {
         id: {
             type: DataTypes.UUID,
+            defaultValue: Sequelize.UUIDV4,
             allowNull: false,
             primaryKey: true
         },
@@ -55,20 +57,13 @@ User.init(
             type: DataTypes.STRING,
             allowNull: false
         },
-        // profile_picture: {
-        //     type: DataTypes.BLOB
-        // },
+        profile_picture: {
+            type: DataTypes.STRING,
+            defaultValue: 'https://res.cloudinary.com/birminghambcs/image/upload/v1617570986/user_a78tmx.png',
+        },
         date_of_birth: {
             type: DataTypes.DATE
-        },
-        // friend_id: {
-        //     type: DataTypes.UUID,
-        //     references: {
-        //         model: 'user',
-        //         key: 'id'
-        //     }
-        // },
-
+        }
     },
     {
         hooks: {

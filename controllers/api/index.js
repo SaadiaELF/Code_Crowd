@@ -2,16 +2,12 @@
 const router = require('express').Router();
 const userRoutes = require('./userRoutes');
 const postRoutes = require('./postRoutes');
-const fileRoutes = require('./fileRoutes');
-const imageRoutes = require('./imageRoutes');
 const commentRoutes = require('./commentRoutes');
 const friendRoutes = require('./friendRoutes');
 
 // Paths
 router.use('/user', userRoutes);
 router.use('/post', postRoutes);
-router.use('/file', fileRoutes);
-router.use('/image', imageRoutes);
 router.use('/comment', commentRoutes);
 router.use('/friend', friendRoutes);
 

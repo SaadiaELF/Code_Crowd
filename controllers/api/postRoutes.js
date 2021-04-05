@@ -4,22 +4,19 @@ const { Post } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 // Create a new post
-router.post('/', withAuth, async (req, res) => {
+router.post('/', async (req, res) => {
+    // create a new post
     try {
-        const postData = await Post.create({
+        const newPost = await Post.create({
             content: req.body.content,
-            date: req.body.date,
-            like: req.body.like,
-            dislike: req.body.dislike,
-            user_id: req.session.user_id,
+            user_id: '89c4da20-a560-404d-8441-29287191c5ca',
         });
 
-        res.status(200).json(postData);
+        res.status(200).json(newPost);
+    } catch (err) {
+        res.status(400).json("Error: Cannot add the post");
     }
 
-    catch (err) {
-        res.status(400).json(err);
-    }
 });
 
 // Delete an existing post, by specific id
@@ -46,6 +43,7 @@ router.delete('/delete/:id', withAuth, async (req, res) => {
         res.status(500).json(err);
     }
 });
+
 
 // Export module
 module.exports = router;

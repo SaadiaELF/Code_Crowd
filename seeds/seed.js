@@ -19,20 +19,20 @@ const seedDatabase = async () => {
     individualHooks: true,
     returning: true,
   });
-  await Comment.bulkCreate(commentData, {
-    individualHooks: true,
-    returning: true,
-  });
+  // await Comment.bulkCreate(commentData, {
+  //   individualHooks: true,
+  //   returning: true,
+  // });
   
-  await File.bulkCreate(fileData, {
-    individualHooks: true,
-    returning: true,
-  });
+  // await File.bulkCreate(fileData, {
+  //   individualHooks: true,
+  //   returning: true,
+  // });
 
-  await Image.bulkCreate(imageData, {
-    individualHooks: true,
-    returning: true,
-  });
+  // await Image.bulkCreate(imageData, {
+  //   individualHooks: true,
+  //   returning: true,
+  // });
 
 
   process.exit(0);
