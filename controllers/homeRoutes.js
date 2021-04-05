@@ -18,14 +18,7 @@ router.get('/', async (req, res) => {
                     model: Comment,
                     attributes: ['id']
                 },
-                {
-                    model: File,
-                    attributes: ['id'] // What other attributes?
-                },
-                {
-                    model: Image,
-                    attributes: ['id'] // What other attributes?
-                }
+                
             ]
         });
 
@@ -96,7 +89,7 @@ router.get('/profile', async (req, res) => {
     try {
         const postData = await Post.findAll({
             where: {
-                user_id: "89c4da20-a560-404d-8441-29287191c5ca"
+                user_id: req.session.user_id
             },
             order: [
                 ['date', 'DESC'],
