@@ -18,14 +18,6 @@ router.get('/', async (req, res) => {
                     model: Comment,
                     attributes: ['id']
                 },
-                {
-                    model: File,
-                    attributes: ['id'] // What other attributes?
-                },
-                {
-                    model: Image,
-                    attributes: ['id'] // What other attributes?
-                }
             ]
         });
 
