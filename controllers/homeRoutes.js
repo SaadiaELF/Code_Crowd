@@ -135,7 +135,29 @@ router.put('/profile/:id', async (req, res) => {
     }
 });
 
+// Get users in the search results to make friends with
+router.get('/search', async (req, res) => {
+    try {
+        const userData = await User.findAll();
 
+        if (!userData) {
+            res.status(404).json({ message: 'No user found with this name.' })
+        }
+
+        // serialize the user data, removing extra sequelize meta data
+        const users = userData.map((users) => users.get({ plain: true }));
+
+        res.render('search', {
+            users,
+            // loggedIn: req.session.loggedIn
+        });
+    }
+    
+    catch (err) {
+        console.log(err);
+        res.status(400).json(err);
+    }
+});
 
 // Render the login
 // If the user is logged in, redirect to the home page
@@ -180,5 +202,6 @@ router.put('/profile', async (req, res) => {
         res.status(500).json("Error: Cannot update the post");
     }
 });
+
 // Export the module
 module.exports = router;
