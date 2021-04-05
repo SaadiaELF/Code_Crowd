@@ -104,7 +104,6 @@ router.get('/profile', async (req, res) => {
             include: [
                 {
                     model: User,
-                    attributes: ['id', 'first_name', 'last_name', 'profile_picture'],
                 },
             ],
         });
