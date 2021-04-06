@@ -11,7 +11,7 @@ const delButtonHandler = async (event) => {
 
     if (response.ok) {
       // If successful, redirect the browser to the dashboard page
-      document.location.replace('/profile');
+      document.location.reload();
     } else {
       alert('Failed to delete post');
     }
