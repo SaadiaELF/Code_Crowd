@@ -2,7 +2,6 @@
     <div class="post-card card w-75">
         <div class="card-header pb-0">
             <img id="profile-img" src={{user.profile_picture}} class="rounded float-left" alt="profile-img">
-            <!-- <h5 id="name-surname" class="float-left pl-3">Name Surname</h5> -->
             <ul id="btn-list" class="float-left pl-2">
                 <li>
                     <h5><b>{{user.first_name}} {{user.last_name}}</b></h5>
@@ -11,26 +10,42 @@
                     <h6 class="text-muted">{{format_date date}} {{format_time date}}</h6>
                 </li>
             </ul>
+            <button id='delete-btn' type="button" class="btn btn-outline-danger float-right btn-sm"
+                data-id="{{id}}">Delete</button>
         </div>
         <div class="card-body">
             <p class="card-text">{{content}}</p>
-            {{!-- <img id="post-img" src="" class="img-thumbnail rounded mx-auto d-block" alt="post-img">
-            <div class="input-group mt-3 mb-3 justify-content-center">
-                <div class="input-group-prepend">
-                    <span class="input-group-text" id="file-name">File-name</span>
-                </div>
-                <div class="input-group-append">
-                    <button class="btn btn-outline-secondary" type="button" id="download">Download</button>
-                </div>
-            </div> --}}
+            {{#if screenshot}}
+            <img id="post-img" src="{{screenshot}}" class="img-thumbnail rounded mx-auto d-block" alt="post-img">
+            {{/if}}
+            {{#if file}}
+            <pre><code class="mt-2">{{file}}</code></pre>
+            {{/if}}
         </div>
         <div class="card-footer">
-            <button id='likeBtn' class="btn btn-outline-primary" data="{{id}}" value="{{like}}"><i
+            <button id='likeBtn' class="btn btn-outline-primary btn-sm" data-id="{{id}}"><i
                     class="far fa-thumbs-up"></i>{{like}}</button>
-            <button id='dislikeBtn' class="btn btn-outline-primary" data="{{id}}" value="{{dislike}}"><i
+            <button id='dislikeBtn' class="btn btn-outline-primary btn-sm" data-id="{{id}}"><i
                     class="far fa-thumbs-down"></i>{{dislike}}</button>
-            <button id='commentBtn' class="btn btn-outline-primary"><i class="fa fa-comment"></i>Comment</button>
-
+            <button id='commentBtn' class="btn btn-outline-primary btn-sm"><i class="fa fa-comment"></i>
+                Comment</button>
+            <form class="new-comment-form m-2" hidden>
+                <div class="form-group m-2">
+                    <textarea class="form-control comment" rows="2" required minlength="10"></textarea>
+                </div>
+                <button type="submit" class="submitBtn btn btn-danger btn-sm" value="{{id}}">Submit</button>
+            </form>
+            {{#each comments as |comment|}}
+            <div class="card mt-2 border-secondary">
+                <div class="card-header pt-0 pb-0">
+                    <!-- Pass time value to the helper functions -->
+                    <b>{{comment.user.first_name}} {{comment.user.last_name}} </b> <p class="mb-0"> {{format_date comment.date}} at {{format_time comment.date}}</p>
+                </div>
+                <div class="card-body">
+                    <p class="card-text">{{comment.content}}</p>
+                </div>
+            </div>
+            {{/each}}
         </div>
     </div>
 </div>
