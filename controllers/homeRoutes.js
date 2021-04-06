@@ -1,6 +1,6 @@
 // Dependencies
 const router = require('express').Router();
-const { User, Post, File, Image, Comment } = require('../models');
+const { User, Post, Comment } = require('../models');
 
 // DEFINE ALL ROUTES BELOW
 
@@ -89,7 +89,7 @@ router.get('/profile', async (req, res) => {
     try {
         const postData = await Post.findAll({
             where: {
-                user_id: req.session.user_id
+                user_id: "req.session.user_id"
             },
             order: [
                 ['date', 'DESC'],
@@ -121,7 +121,7 @@ router.put('/profile/:id', async (req, res) => {
         },
             {
                 where: {
-                    id: "89c4da20-a560-404d-8441-29287191c5ca"
+                    id: "f4286e04-8fdb-4ce4-ba5f-ad4406686bee"
                 },
             });
 
@@ -154,7 +154,7 @@ router.get('/login', async (req, res) => {
 router.get('/signup', (req, res) => {
     // Route to signup page
     if (req.session.logged_in) {
-        res.redirect('/dashboard');
+        res.redirect('/profile');
         return;
     }
     res.render('signup');

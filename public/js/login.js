@@ -1,7 +1,7 @@
 const loginClickHandler = async (event) => {
     event.preventDefault();
 
-    const email = document.querySelector('#login-email-address').value.trim();
+    const email = document.querySelector('#login-email').value.trim();
     const password = document.querySelector('#login-password').value.trim();
    
 
@@ -24,6 +24,6 @@ const loginClickHandler = async (event) => {
 };
 
 document
-  .querySelector('#login-button')
+  .querySelector('#login')
   .addEventListener('click', loginClickHandler);
 
