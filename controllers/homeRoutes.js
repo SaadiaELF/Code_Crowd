@@ -96,12 +96,17 @@ router.get('/profile', async (req, res) => {
             include: [
                 {
                     model: User,
-                    attributes: ['id', 'first_name', 'last_name', 'profile_picture'],
+                },
+                {
+                    model: Comment,
+                    include: {
+                        model: User,
+                        attributes: ['id', 'first_name', 'last_name']
+                      },
                 },
             ],
         });
         const posts = postData.map((post) => post.get({ plain: true }));
-        console.log(posts)
         res.render('profile', { posts });
     }
     catch (err) {
