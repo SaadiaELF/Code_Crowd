@@ -1,6 +1,7 @@
 // Dependencies
 const router = require('express').Router();
 const { User, Post, Comment } = require('../models');
+const { Op } = require('sequelize');
 
 // DEFINE ALL ROUTES BELOW
 
@@ -142,26 +143,21 @@ router.put('/profile/:id', async (req, res) => {
 });
 
 // Get users in the search results to make friends with
-router.get('/search', async (req, res) => {
+router.get('/search/:search', async (req, res) => {
     try {
-        const userData = await User.findAll();
-
-        if (!userData) {
-            res.status(404).json({ message: 'No user found with this name.' })
-        }
-
-        // serialize the user data, removing extra sequelize meta data
-        const users = userData.map((users) => users.get({ plain: true }));
-
-        res.render('search', {
-            users,
-            // loggedIn: req.session.loggedIn
+        const userData = await User.findAll({
+            where: {
+                programming_languages: {
+                    [Op.substring]: req.params.search,
+                }
+            },
         });
+        const users = userData.map((user) => user.get({ plain: true }));
+        res.render('search', { users });
     }
-    
     catch (err) {
         console.log(err);
-        res.status(400).json(err);
+        res.status(500).json(err);
     }
 });
 
@@ -206,6 +202,36 @@ router.put('/profile', async (req, res) => {
         res.status(200).json(postData);
     } catch (err) {
         res.status(500).json("Error: Cannot update the post");
+    }
+});
+
+// Render the feeds page
+router.get('/feeds', async (req, res) => {
+    try {
+        const postData = await Post.findAll({
+            order: [
+                ['date', 'DESC'],
+            ],
+            include: [
+                {
+                    model: User,
+                    // add where : friend_id = req.session.user_id
+                },
+                {
+                    model: Comment,
+                    include: {
+                        model: User,
+                        attributes: ['id', 'first_name', 'last_name']
+                    },
+                },
+            ],
+        });
+        const posts = postData.map((post) => post.get({ plain: true }));
+        res.render('feeds', { posts });
+    }
+    catch (err) {
+        console.log(err);
+        res.status(500).json(err);
     }
 });
 
