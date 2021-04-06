@@ -2,9 +2,7 @@ const dislikeBtnHandler = async (event) => {
   if (event.target.matches('#dislikeBtn') && event.target.hasAttribute('data-id')) {
     // Collect values from the edit post form
     let dislike = parseInt(document.querySelector('#dislikeBtn').innerText);
-    if (dislike > 0) {
-      dislike = dislike - 1
-    } else { dislike = 0 }
+    dislike = dislike + 1
     console.log(dislike)
     const id = document.querySelector('#dislikeBtn').getAttribute("data-id");
     console.log(dislike, id)
