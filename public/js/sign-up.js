@@ -1,4 +1,4 @@
-//retrieving values from signup form and sending them to signup route
+// Retrieve values from signup form and send them to signup route
 const signupClickHandler = async (event) => {
     event.preventDefault();
 
@@ -29,7 +29,7 @@ const signupClickHandler = async (event) => {
     }
     else {
 
-//send values to database
+// Send values to database
         if (first_name && last_name && date_of_birth && city && country && programming_languages && email && password) {
             const response = await fetch('/api/user/signup', {
                 method: 'POST',
@@ -65,6 +65,7 @@ const signupClickHandler = async (event) => {
     
 // }
 
+// Call button from the homepage.handlebars to apply function to
 document
     .querySelector('#sign-up-button')
     .addEventListener('click', signupClickHandler);

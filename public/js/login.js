@@ -1,10 +1,10 @@
-//taking login info and sending it to login route
+// Take login info and send it to login route
 const loginClickHandler = async (event) => {
     event.preventDefault();
 
     const email = document.querySelector('#login-email').value.toLowerCase().trim();
     const password = document.querySelector('#login-password').value.trim();
-   
+
 
     console.log(email);
     console.log(password);
@@ -24,7 +24,8 @@ const loginClickHandler = async (event) => {
     }
 };
 
+// Call button from the homepage.handlebars to apply function to
 document
-  .querySelector('#login')
-  .addEventListener('click', loginClickHandler);
+    .querySelector('#login')
+    .addEventListener('click', loginClickHandler);
 
