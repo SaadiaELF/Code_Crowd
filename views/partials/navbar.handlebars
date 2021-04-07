@@ -1,29 +1,29 @@
-<!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light shadow" id="mainNav">
-        <a class="navbar-brand mt-2 ">
-            <h2>Title</h2>
-        </a>
-        <!-- Navbar-toggler displays in smaller size screen -->
-        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
-            data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
-            aria-label="Toggle navigation">
-            Menu
-            <span class="navbar-toggler-icon"></span>
-        </button>
+    <!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-light bg-info shadow" id="mainNav">
+    <a class="navbar-brand">
+        <img src="/images/logo2.png" style="height: 45px; width:auto">
+    </a>
+    <!-- Navbar-toggler displays in smaller size screen -->
+    {{!-- <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+        data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
+        aria-label="Toggle navigation">
+        Menu
+        <span class="navbar-toggler-icon"></span>
+    </button> --}}
 
-        <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-        </form>
+    <form class="search-form form-inline my-2 my-lg-0">
+        <input id="searchBtn" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-warning my-2 my-sm-0" type="submit">Search</button>
+    </form>
 
-        <!-- Navbar tabs -->
-        <div class="collapse navbar-collapse" id="navbarResponsive">
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item mr-2 "><img id="profile-img" src="./assets/img.png" class="rounded"
-                        alt="profile-img"></li>
-                <li class="nav-item mt-2 mr-2 "><button class="btn btn-danger pl-3 pr-3" id="my-profile">My
-                        Profile</button></li>
-                <li class="nav-item mt-2 mr-2"><button class="btn btn-danger pl-3 pr-3" id="logout">Logout</button></li>
-            </ul>
-        </div>
-    </nav>
+    <!-- Navbar tabs -->
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item img-fluid rounded-circle mx-auto"><img id="profile-img"
+                    src="{{posts.0.user.profile_picture}}" class="rounded" alt="profile-img"></li>
+            <li class="nav-item mt-2 mr-2 ml-2 "><a id="my-profile" href="/profile" type="button" class="btn btn-warning" >My
+                    Profile</a></li>
+            <li class="nav-item mt-2 mr-2"><button class="btn btn-dark" id="logout">Logout</button></li>
+        </ul>
+    </div>
+</nav>
