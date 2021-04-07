@@ -1,15 +1,15 @@
-    <!-- Navbar -->
+      <!-- Navbar -->
 <nav class="navbar navbar-expand-lg navbar-light bg-info shadow" id="mainNav">
     <a class="navbar-brand">
         <img src="/images/logo2.png" style="height: 45px; width:auto">
     </a>
     <!-- Navbar-toggler displays in smaller size screen -->
-    {{!-- <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
         data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
         aria-label="Toggle navigation">
         Menu
         <span class="navbar-toggler-icon"></span>
-    </button> --}}
+    </button>
 
     <form class="search-form form-inline my-2 my-lg-0">
         <input id="searchBtn" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
@@ -20,7 +20,7 @@
     <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
             <li class="nav-item img-fluid rounded-circle mx-auto"><img id="profile-img"
-                    src="{{posts.0.user.profile_picture}}" class="rounded" alt="profile-img"></li>
+                    src="{{profile_picture}}" class="rounded" alt="profile-img"></li>
             <li class="nav-item mt-2 mr-2 ml-2 "><a id="my-profile" href="/profile" type="button" class="btn btn-warning" >My
                     Profile</a></li>
             <li class="nav-item mt-2 mr-2"><button class="btn btn-dark" id="logout">Logout</button></li>
@@ -28,4 +28,4 @@
     </div>
 </nav>
 
-<script src="/js/logout.js"></script>   
+<script src="/js/logout.js"></script> 
