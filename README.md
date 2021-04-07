@@ -1,7 +1,5 @@
 # Project 2: Code Crowd - A Social Media Web-App for Coders
 
-<h1 style="align: center;">Code Crowd 👋</h1>
-
 ## 🔍 Description
 This repository contains the second project assigned to us by the Coding Bootcamp at University of Birmingham. In this project, the team members collaboratively worked on creating a very distict and novel social media application for computer programmers, exclusively. Using this app, programmers are able to befriend and communicate with other coders, and exchange posts related to code in various programming languages, in the form of screenshots and code snippets.
 
