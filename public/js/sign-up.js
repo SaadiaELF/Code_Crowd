@@ -5,17 +5,25 @@ const signupClickHandler = async (event) => {
 
     const first_name = document.querySelector('#first-name').value.trim();
     const last_name = document.querySelector('#last-name').value.trim();
-    const date_of_birth = document.querySelector('#textinput').value.trim();
+    const date_of_birth = document.querySelector('#date-of-birth').value.trim();
     const city = document.querySelector('#city').value.trim();
     const country = document.querySelector('#country').value.trim();
     const programming_languages = document.querySelector('#programming-languages').value.trim();
     const email = document.querySelector('#email').value.toLowerCase().trim();
     const password = document.querySelector('#password').value.trim();
     const verifyPassword = document.querySelector('#verify-password').value.trim();
+    
 
+    const now = new Date();
+    let date1 = Date.parse(date_of_birth);
+    let date2 = Date.parse(now);
+    if (date1 > date2) {
+        alert ("date must be in the past")
+    }
+    
 
 // check  both password input fields match
-    if (verifyPassword != password) {
+    else if (verifyPassword != password) {
 
         alert('passwords do not match')
     }
@@ -41,6 +49,21 @@ const signupClickHandler = async (event) => {
     }
 };
 
+// function checkDate() {
+//     const date_of_birth = document.querySelector('#date-of-birth').value.trim();
+//     const now = new Date();
+//     let date1 = Date.parse(date_of_birth);
+//     let date2 = Date.parse(now);
+//     if (date1 > date2) {
+//         alert ("date must be in the past")
+//     }
+//     else {
+        
+//         return date_of_birth;
+
+//     }
+    
+// }
 
 document
     .querySelector('#sign-up-button')
