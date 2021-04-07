@@ -31,10 +31,12 @@ Post.init(
             type: DataTypes.STRING,
         },
         like: {
-            type: DataTypes.INTEGER // count
+            type: DataTypes.INTEGER, // count
+            defaultValue: 0,
         },
         dislike: {
-            type: DataTypes.INTEGER // count
+            type: DataTypes.INTEGER, // count
+            defaultValue: 0,
         },
         user_id: {
             type: DataTypes.UUID,
