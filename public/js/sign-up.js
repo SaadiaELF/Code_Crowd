@@ -1,3 +1,4 @@
+//retrieving values from signup form and sending them to signup route
 const signupClickHandler = async (event) => {
     event.preventDefault();
 

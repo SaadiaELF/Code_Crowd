@@ -1,3 +1,4 @@
+//taking login info and sending it to login route
 const loginClickHandler = async (event) => {
     event.preventDefault();
 
