@@ -1,11 +1,8 @@
 const likeBtnHandler = async (event) => {
-  if (event.target.matches('#likeBtn') && event.target.hasAttribute('data-id')) {
-  // Collect values from the edit post form
-  let like = parseInt(document.querySelector('#likeBtn').innerText);
+
+  let like = parseInt(event.target.innerText);
   like = like + 1;
-  console.log(like)
-  const id = document.querySelector('#likeBtn').getAttribute("data-id");
-  console.log(like, id)
+  const id = event.target.getAttribute("data-id");
 
   if (like && id) {
     // Send a POST request to the API endpoint
@@ -22,10 +19,12 @@ const likeBtnHandler = async (event) => {
       alert('Failed to update post');
     }
   }
-  }
+  
 };
 
 
-document
-  // .querySelector('#likeBtn')
-  .addEventListener('click', likeBtnHandler);
+var likeBtns = document.querySelectorAll('#likeBtn');
+  
+for (var i = 0 ; i < likeBtns.length ; i++){
+  likeBtns[i].addEventListener('click', likeBtnHandler);
+}

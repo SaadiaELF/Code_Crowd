@@ -1,11 +1,8 @@
 const dislikeBtnHandler = async (event) => {
-  if (event.target.matches('#dislikeBtn') && event.target.hasAttribute('data-id')) {
-    // Collect values from the edit post form
-    let dislike = parseInt(document.querySelector('#dislikeBtn').innerText);
+
+    let dislike = parseInt(event.target.innerText);
     dislike = dislike + 1
-    console.log(dislike)
-    const id = document.querySelector('#dislikeBtn').getAttribute("data-id");
-    console.log(dislike, id)
+    const id = event.target.getAttribute("data-id");
 
     if (dislike && id) {
       // Send a POST request to the API endpoint
@@ -22,10 +19,9 @@ const dislikeBtnHandler = async (event) => {
         alert('Failed to update post');
       }
     }
-  }
 };
 
-
-document
-  // .querySelector('#dislikeBtn')
-  .addEventListener('click', dislikeBtnHandler);
+var dislikeBtns = document.querySelectorAll('#dislikeBtn');
+for (var i = 0 ; i < dislikeBtns.length ; i++){
+  dislikeBtns[i].addEventListener('click', dislikeBtnHandler)
+}
