@@ -3,30 +3,18 @@ const router = require('express').Router();
 const { Friend, User } = require('../../models');
 const withAuth = require('../../utils/auth');
 
-// // Get users in the search results to make friends with
-// router.get('/search', withAuth, async (req, res) => {
-//     try {
-//         const userData = await User.findAll({
-//             include: [
-//                 {
-//                     model: User,
-//                     attributes: ['first_name', 'last_name', 'programming_languages', 'profile_picture']
-//                 }
-//             ]
-//         });
-
-//         if (!userData) {
-//             res.status(404).json({ message: 'No user found with this name.' })
-//         }
-
-//         res.status(200).json(userData);
-//     }
-    
-//     catch (err) {
-//         console.log(err);
-//         res.status(400).json(err);
-//     }
-// });
+router.post('/', async (req, res) => {
+    // create a new friend
+    try {
+        const newFriend = await Friend.create({
+            friend_id: req.body.friend_id,
+            user_id: "89c4da20-a560-404d-8441-29287191c5ca"
+        });
+        res.status(200).json(newFriend);
+    } catch (err) {
+        res.status(400).json("Error: Cannot add the friend");
+    }
+});
 
 // Export module
 module.exports = router;
