@@ -7,29 +7,9 @@ const { User, Post, Comment } = require('../models');
 // Render the main content on the homepage
 router.get('/', async (req, res) => {
     try {
-        // Get all posts and JOIN with user data
-        const postData = await Post.findAll({
-            include: [
-                {
-                    model: User,
-                    attributes: ['first_name', 'last_name', 'programming_languages', 'profile_picture']
-                },
-                {
-                    model: Comment,
-                    attributes: ['id']
-                },
-                
-            ]
-        });
-
-        // Serialize data so the template can read it
-        const posts = postData.map((post) => post.get({ plain: true }));
-        console.log(postData);
-
-        // Pass serialized data and session flag into template
+       
         res.render('homepage', {
-            posts,
-            logged_in: req.session.logged_in
+            
         });
     }
 
