@@ -1,7 +1,8 @@
+//taking login info and sending it to login route
 const loginClickHandler = async (event) => {
     event.preventDefault();
 
-    const email = document.querySelector('#login-email').value.trim();
+    const email = document.querySelector('#login-email').value.toLowerCase().trim();
     const password = document.querySelector('#login-password').value.trim();
    
 
