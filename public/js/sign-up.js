@@ -13,32 +13,32 @@ const signupClickHandler = async (event) => {
     const password = document.querySelector('#password').value.trim();
     const verifyPassword = document.querySelector('#verify-password').value.trim();
 
-    
 
-     if (verifyPassword.value === password.value) {
-        if (first_name && last_name && date_of_birth && city && country && programming_languages && email && password ) {
-        const response = await fetch('/api/user/signup', {
-            method: 'POST',
-            body: JSON.stringify({ first_name, last_name, date_of_birth, city, country, programming_languages, email, password }),
-            headers: { 'Content-Type': 'application/json' },
-        });
-    
 
-        if (response.ok) {
-            document.location.replace('/profile');
-        } else {
-            alert(response.statusText);
+    if (verifyPassword != password) {
+
+        alert('passwords do not match')
+    }
+    else {
+
+
+        if (first_name && last_name && date_of_birth && city && country && programming_languages && email && password) {
+            const response = await fetch('/api/user/signup', {
+                method: 'POST',
+                body: JSON.stringify({ first_name, last_name, date_of_birth, city, country, programming_languages, email, password }),
+                headers: { 'Content-Type': 'application/json' },
+            });
+
+
+            if (response.ok) {
+                document.location.replace('/profile');
+            } else {
+                alert(response.statusText);
+            }
+
         }
-    } else {
-       alert('passwords do not match')    }
-        
-        
-    
 
     }
-
-    
-    
 };
 
 // function onChange() {
@@ -50,8 +50,7 @@ const signupClickHandler = async (event) => {
 //       confirm.setCustomValidity('Passwords do not match');
 //     }
 //   }
-
 document
-  .querySelector('#sign-up-button')
-  .addEventListener('click', signupClickHandler);
+    .querySelector('#sign-up-button')
+    .addEventListener('click', signupClickHandler);
 
