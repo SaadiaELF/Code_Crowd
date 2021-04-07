@@ -8,9 +8,9 @@ const { Op } = require('sequelize');
 // Render the main content on the homepage
 router.get('/', async (req, res) => {
     try {
-       
+
         res.render('homepage', {
-            
+
         });
     }
 
@@ -66,6 +66,8 @@ router.get('/post/:id', async (req, res) => {
     }
 
 });
+
+// Render all the content on the profile page
 router.get('/profile', async (req, res) => {
     try {
         const postData = await Post.findAll({
@@ -84,7 +86,7 @@ router.get('/profile', async (req, res) => {
                     include: {
                         model: User,
                         attributes: ['id', 'first_name', 'last_name']
-                      },
+                    },
                 },
             ],
         });
@@ -97,11 +99,10 @@ router.get('/profile', async (req, res) => {
     }
 });
 
-
+// Update the profile picture on the profile page
 router.put('/profile/:id', async (req, res) => {
     // update post by id
     try {
-        // console.log(req.body.imageUrl);
         const userData = await User.update({
             profile_picture: req.body.imageUrl
         },
@@ -141,28 +142,7 @@ router.get('/search/:search', async (req, res) => {
     }
 });
 
-// Render the login
-// If the user is logged in, redirect to the home page
-router.get('/login', async (req, res) => {
-    if (req.session.loggedIn) {
-        res.redirect('/');
-        return;
-    }
-
-    res.render('login');
-});
-
-// Render the sign up
-// If the user is logged in, redirect to the home page.
-router.get('/signup', (req, res) => {
-    // Route to signup page
-    if (req.session.logged_in) {
-        res.redirect('/profile');
-        return;
-    }
-    res.render('signup');
-});
-
+// Update a post
 router.put('/profile', async (req, res) => {
     // update post by id
     try {
@@ -234,12 +214,34 @@ router.get('/friends', async (req, res) => {
         const userData = await User.findByPk(req.session.user_id);
         const user = userData.get({ plain: true });
         const friends = friendData.map((friend) => friend.get({ plain: true }));
-        res.render('friends', { friends, user});
+        res.render('friends', { friends, user });
     }
     catch (err) {
         console.log(err);
         res.status(500).json(err);
     }
+});
+
+// Render the login
+// If the user is logged in, redirect to the home page
+router.get('/login', async (req, res) => {
+    if (req.session.loggedIn) {
+        res.redirect('/');
+        return;
+    }
+
+    res.render('login');
+});
+
+// Render the sign up
+// If the user is logged in, redirect to the home page.
+router.get('/signup', (req, res) => {
+    // Route to signup page
+    if (req.session.logged_in) {
+        res.redirect('/profile');
+        return;
+    }
+    res.render('signup');
 });
 
 // Export the module
