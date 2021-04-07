@@ -189,5 +189,35 @@ router.put('/profile', async (req, res) => {
     }
 });
 
+router.get('/feeds', async (req, res) => {
+    try {
+        const postData = await Post.findAll({
+            order: [
+                ['date', 'DESC'],
+            ],
+            include: [
+                {
+                    model: User,
+                    // add where : friend_id = req.session.user_id
+                },
+                {
+                    model: Comment,
+                    include: {
+                        model: User,
+                        attributes: ['id', 'first_name', 'last_name']
+                    },
+                },
+            ],
+        });
+        const posts = postData.map((post) => post.get({ plain: true }));
+        res.render('feeds', { posts });
+    }
+    catch (err) {
+        console.log(err);
+        res.status(500).json(err);
+    }
+});
+
+
 // Export the module
 module.exports = router;
