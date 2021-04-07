@@ -1,3 +1,4 @@
+// Upload a profile picture on the click of the Upload Photo button
 var myWidget = cloudinary.createUploadWidget({
     cloudName: 'birminghambcs',
     uploadPreset: 'gbw7i3gr'
@@ -22,6 +23,8 @@ var myWidget = cloudinary.createUploadWidget({
     }
 }
 )
+
+// Call button from the side-navbar.handlebars to apply function to
 document.getElementById("upload_widget").addEventListener("click", async function () {
     await myWidget.open();
 

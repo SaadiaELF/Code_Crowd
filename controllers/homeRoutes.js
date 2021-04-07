@@ -216,5 +216,31 @@ router.get('/feeds', async (req, res) => {
     }
 });
 
+// Render the friends page when friends button is clicked
+router.get('/friends', async (req, res) => {
+    try {
+        const friendData = await User.findAll({
+            where: {
+                id: req.session.user_id
+            },
+            include: [
+                {
+                    model: User,
+                    through: Friend,
+                    as: 'user_friend',
+                }
+            ]
+        });
+        const userData = await User.findByPk(req.session.user_id);
+        const user = userData.get({ plain: true });
+        const friends = friendData.map((friend) => friend.get({ plain: true }));
+        res.render('friends', { friends, user});
+    }
+    catch (err) {
+        console.log(err);
+        res.status(500).json(err);
+    }
+});
+
 // Export the module
 module.exports = router;
