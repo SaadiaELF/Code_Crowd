@@ -28,7 +28,7 @@ To view your profile page, click on the My Profile button, and feel free to upda
 Watch the video:)
 
 ## License
-This application is covered by the MIT License license. 
+This application is covered by the MIT License. 
 
 ## 👪 Contributing
 This web application has been created with the contribution of the following team members:
@@ -39,12 +39,13 @@ This web application has been created with the contribution of the following tea
 If you wish to contribute to this app, contact us using the details below and gain access to this Github repository with your Github account today! Create your own branch and make amendments to the code, to make improvements or for marketing purposes.
 
 ## ✏️ Tests
-...
-
+There were no particular test that this app has been made to pass, except for the app to flow error-free in the local terminal and in the browser, with all the correct packages and libraries installed, the database seeded, and the server running at all times of use.
 
 ## 💐 Credits
-...
-
+We appreciate the help of a lot of people provided to us during the creation of this application, and we would like to credit their efforts below:
+1. Ben Ashley
+2. Paul Iurea
+3. Chigbo Onyinyechukwu
 
 ## ✋ Questions
 If you have any questions, contact us using the following contact information<br />
