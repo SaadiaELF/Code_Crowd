@@ -13,7 +13,7 @@ const signupClickHandler = async (event) => {
     const password = document.querySelector('#password').value.trim();
     const verifyPassword = document.querySelector('#verify-password').value.trim();
     
-
+// ensure date is in the past
     const now = new Date();
     let date1 = Date.parse(date_of_birth);
     let date2 = Date.parse(now);
@@ -49,21 +49,7 @@ const signupClickHandler = async (event) => {
     }
 };
 
-// function checkDate() {
-//     const date_of_birth = document.querySelector('#date-of-birth').value.trim();
-//     const now = new Date();
-//     let date1 = Date.parse(date_of_birth);
-//     let date2 = Date.parse(now);
-//     if (date1 > date2) {
-//         alert ("date must be in the past")
-//     }
-//     else {
-        
-//         return date_of_birth;
 
-//     }
-    
-// }
 
 document
     .querySelector('#sign-up-button')
