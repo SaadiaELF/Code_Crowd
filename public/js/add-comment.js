@@ -1,11 +1,17 @@
 const showCommentHandler = async (event) => {
   event.preventDefault();
-  document.querySelector('.new-comment-form').removeAttribute("hidden");
+  if (event.target.matches('#commentBtn') ) {
+    var showComment = document.querySelectorAll('.new-comment-form');
+    for (var i = 0; i < showComment.length; i++) {
+      showComment[i].removeAttribute("hidden")
+    }
+  }
 };
 
-document
-  .querySelector('#commentBtn')
-  .addEventListener('click', showCommentHandler);
+var commentBtns = document.querySelectorAll('#commentBtn')
+for (var i = 0; i < commentBtns.length; i++) {
+  commentBtns[i].addEventListener('click', showCommentHandler)
+}
 
 
 const commentHandler = async (event) => {
@@ -19,7 +25,7 @@ const commentHandler = async (event) => {
     // Send a POST request to the API endpoint
     const response = await fetch('/api/comment', {
       method: 'POST',
-      body: JSON.stringify({ content, post_id , user_id}),
+      body: JSON.stringify({ content, post_id, user_id }),
       headers: { 'Content-Type': 'application/json' },
     });
 
