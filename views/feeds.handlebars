@@ -1,9 +1,9 @@
 <main id="feeds-page">
-    {{> navbar}}
+    {{> navbar user}}
     <div class="container-fluid p-0">
         <section class="profile-section mx-auto">
             <div class="profile-section-content">
-                {{> post-form }}
+                {{> post-form user}}
                 {{#each posts as |post|}}
                 {{> post-info post}}
                 {{/each}}
