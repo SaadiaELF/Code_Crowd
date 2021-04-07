@@ -12,14 +12,16 @@ const signupClickHandler = async (event) => {
     const password = document.querySelector('#password').value.trim();
     const verifyPassword = document.querySelector('#verify-password').value.trim();
 
-    if (password === verifyPassword){
-        
+    
+
+     if (verifyPassword.value === password.value) {
         if (first_name && last_name && date_of_birth && city && country && programming_languages && email && password ) {
         const response = await fetch('/api/user/signup', {
             method: 'POST',
             body: JSON.stringify({ first_name, last_name, date_of_birth, city, country, programming_languages, email, password }),
             headers: { 'Content-Type': 'application/json' },
         });
+    
 
         if (response.ok) {
             document.location.replace('/profile');
@@ -27,14 +29,26 @@ const signupClickHandler = async (event) => {
             alert(response.statusText);
         }
     } else {
-        alert("password and confirm password do not match")
-    }
+       alert('passwords do not match')    }
+        
+        
+    
 
     }
 
     
     
 };
+
+// function onChange() {
+//     const password = document.querySelector('#password');
+//     const confirm = document.querySelector('#verify-password');
+//     if (confirm.value === password.value) {
+//       confirm.setCustomValidity('');
+//     } else {
+//       confirm.setCustomValidity('Passwords do not match');
+//     }
+//   }
 
 document
   .querySelector('#sign-up-button')
