@@ -6,12 +6,13 @@ const withAuth = require('../../utils/auth');
 // Create a new post
 router.post('/', async (req, res) => {
     // create a new post
+    console.log(req.session.user_id)
     try {
         const newPost = await Post.create({
             content: req.body.content,
             screenshot: req.body.screenshot,
             file: req.body.file,
-            user_id: '89c4da20-a560-404d-8441-29287191c5ca',
+            user_id: req.session.user_id,
         });
 
         res.status(200).json(newPost);
@@ -75,7 +76,7 @@ router.delete('/:id', async (req, res) => {
         const postData = await Post.destroy({
             where: {
                 id: req.params.id,
-                user_id: '89c4da20-a560-404d-8441-29287191c5ca',
+                user_id: req.session.user_id,
             },
         });
         console.log(postData)
