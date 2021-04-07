@@ -40,15 +40,15 @@ Post.hasMany(Comment, {
 });
 
 User.belongsToMany(User, {
+    as : "friend_user",
     through: Friend,
-    foreignKey: 'friend_id',
-    as : "User_Friend"
+    foreignKey: 'friend_id'
 });
 
 User.belongsToMany(User, {
+    as : "user_friend",
     through: Friend,
-    foreignKey: 'user_id',
-    as : "Friend"
+    foreignKey: 'user_id'
 });
 
 // Export the module
