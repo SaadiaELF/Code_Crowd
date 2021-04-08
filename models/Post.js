@@ -28,7 +28,7 @@ Post.init(
             type: DataTypes.STRING,
         },
         file :{
-            type: DataTypes.STRING,
+            type: DataTypes.TEXT,
         },
         like: {
             type: DataTypes.INTEGER, // count

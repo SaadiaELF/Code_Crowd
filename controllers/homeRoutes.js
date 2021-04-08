@@ -2,6 +2,7 @@
 const router = require('express').Router();
 const { User, Post, Comment } = require('../models');
 const { Op } = require('sequelize');
+const withAuth = require('../utils/auth');
 
 // DEFINE ALL ROUTES BELOW
 
@@ -21,7 +22,7 @@ router.get('/', async (req, res) => {
 });
 
 // Gets post by id
-router.get('/post/:id', async (req, res) => {
+router.get('/post/:id', withAuth, async (req, res) => {
     try {
         // Render a single post on the page by its id
         const postData = await Post.findByPk(req.params.id, {
@@ -66,10 +67,9 @@ router.get('/post/:id', async (req, res) => {
     }
 
 });
-
 // Render all the content on the profile page
-router.get('/profile', async (req, res) => {
-    try {
+router.get('/profile', withAuth, async (req, res) => {
+   try {
         const postData = await Post.findAll({
             where: {
                 user_id: "req.session.user_id"
@@ -124,7 +124,7 @@ router.put('/profile/:id', async (req, res) => {
 });
 
 // Get users in the search results to make friends with
-router.get('/search/:search', async (req, res) => {
+router.get('/search/:search', withAuth,  async (req, res) => {
     try {
         const userData = await User.findAll({
             where: {
@@ -167,7 +167,7 @@ router.put('/profile', async (req, res) => {
 
 
 // Render the feeds page
-router.get('/feeds', async (req, res) => {
+router.get('/feeds', withAuth, async (req, res) => {
     try {
         const postData = await Post.findAll({
             order: [

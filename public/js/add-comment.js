@@ -1,12 +1,12 @@
 // Show the text area for the comment on the click of the Comment button under any post
 const showCommentHandler = async (event) => {
+
   event.preventDefault();
   if (event.target.matches('#commentBtn')) {
     var showComment = document.querySelectorAll('.new-comment-form');
     for (var i = 0; i < showComment.length; i++) {
       showComment[i].removeAttribute("hidden")
     }
-  }
 };
 
 // Apply 'showCommentHandler' function to ALL POSTS on the feeds page
@@ -44,3 +44,4 @@ const commentHandler = async (event) => {
 document
   .querySelector('.submitBtn')
   .addEventListener('click', commentHandler);
+

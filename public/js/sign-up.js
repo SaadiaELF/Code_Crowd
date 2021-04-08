@@ -2,9 +2,11 @@
 const signupClickHandler = async (event) => {
     event.preventDefault();
 
+    const firstName= document.querySelector('#first-name').value.trim();
+    const lastName = document.querySelector('#last-name').value.trim(); 
 
-    const first_name = document.querySelector('#first-name').value.trim();
-    const last_name = document.querySelector('#last-name').value.trim();
+    const first_name = firstName.charAt(0).toUpperCase() + firstName.slice(1);
+    const last_name = lastName.charAt(0).toUpperCase() + lastName.slice(1);
     const date_of_birth = document.querySelector('#date-of-birth').value.trim();
     const city = document.querySelector('#city').value.trim();
     const country = document.querySelector('#country').value.trim();
@@ -49,24 +51,8 @@ const signupClickHandler = async (event) => {
     }
 };
 
-// function checkDate() {
-//     const date_of_birth = document.querySelector('#date-of-birth').value.trim();
-//     const now = new Date();
-//     let date1 = Date.parse(date_of_birth);
-//     let date2 = Date.parse(now);
-//     if (date1 > date2) {
-//         alert ("date must be in the past")
-//     }
-//     else {
-        
-//         return date_of_birth;
-
-//     }
-    
-// }
 
 // Call button from the homepage.handlebars to apply function to
 document
     .querySelector('#sign-up-button')
     .addEventListener('click', signupClickHandler);
-
