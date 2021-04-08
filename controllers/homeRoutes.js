@@ -124,17 +124,20 @@ router.put('/profile/:id', async (req, res) => {
 });
 
 // Get users in the search results to make friends with
-router.get('/search/:search', withAuth,  async (req, res) => {
+router.get('/search/:search', async (req, res) => {
     try {
-        const userData = await User.findAll({
+        const usersData = await User.findAll({
             where: {
                 programming_languages: {
                     [Op.substring]: req.params.search,
-                }
+                },
+                id: { [Op.notLike]: req.session.user_id }
             },
         });
-        const users = userData.map((user) => user.get({ plain: true }));
-        res.render('search', { users });
+        const userData = await User.findByPk(req.session.user_id);
+        const user = userData.get({ plain: true });
+        const users = usersData.map((user) => user.get({ plain: true }));
+        res.render('search', { users, user });
     }
     catch (err) {
         console.log(err);
