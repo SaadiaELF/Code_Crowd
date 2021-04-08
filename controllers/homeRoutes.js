@@ -124,7 +124,7 @@ router.put('/profile/:id', async (req, res) => {
 });
 
 // Get users in the search results to make friends with
-router.get('/search/:search', async (req, res) => {
+router.get('/search/:search', withAuth,  async (req, res) => {
     try {
         const userData = await User.findAll({
             where: {
