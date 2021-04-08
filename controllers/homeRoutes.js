@@ -208,6 +208,7 @@ router.get('/feeds', async (req, res) => {
         console.log(err);
         res.status(500).json(err);
     }
+});
 
 // Render the friends page when friends button is clicked
 router.get('/friends', async (req, res) => {
