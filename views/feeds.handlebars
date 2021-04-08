@@ -4,9 +4,12 @@
         <section class="profile-section mx-auto">
             <div class="profile-section-content">
                 {{> post-form user}}
-                {{#each posts as |post|}}
-                {{> post-info post}}
-                {{/each}}
+                {{> post-info-feeds }}
             </div>
         </section>
 </main>
+<script>
+    var model = {{ json users }};
+
+    console.log('My Model:', model);
+</script>
