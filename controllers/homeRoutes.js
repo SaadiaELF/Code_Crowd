@@ -188,7 +188,7 @@ router.put('/profile', async (req, res) => {
 
 
 // Render the feeds page
-router.get('/feeds', async (req, res) => {
+router.get('/feeds', withAuth, async (req, res) => {
     try {
         const postData = await Post.findAll({
             order: [
