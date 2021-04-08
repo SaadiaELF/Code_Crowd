@@ -24,7 +24,7 @@ const addFriendHandler = async (event) => {
 };
 
 // Apply above function to ALL FRIEND ACCOUNTS in the search results, by looping through all of them (from the user.handlebars)
-var friendBtns = document.querySelectorAll('#addFriend');
+var friendBtns = document.querySelectorAll('.addFriend');
 
 for (var i = 0; i < friendBtns.length; i++) {
   friendBtns[i].addEventListener('click', addFriendHandler);
