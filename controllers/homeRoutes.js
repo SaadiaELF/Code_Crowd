@@ -67,7 +67,7 @@ router.get('/post/:id', withAuth, async (req, res) => {
     }
 
 });
-router.get('/profile', async (req, res) => {
+router.get('/profile', withAuth, async (req, res) => {
     try {
         const postData = await Post.findAll({
             where: {
