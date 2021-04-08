@@ -1,0 +1,64 @@
+{{#each user.user_friend}}
+{{#each posts}}
+<div class="row d-flex justify-content-center mb-3">
+    <div class="post-card card w-75">
+        <div class="card-header pb-0">
+            <img id="profile-img" src={{user.profile_picture}} class="rounded float-left" alt="profile-img">
+            <ul id="btn-list" class="float-left pl-2">
+                <li>
+                    <h5><b>{{user.first_name}} {{user.last_name}}</b></h5>
+                </li>
+                <li>
+                    <h6 class="text-muted">{{format_date date}} {{format_time date}}</h6>
+                </li>
+            </ul>
+            <button id='delete-btn' type="button" class="btn btn-outline-warning float-right btn-sm mt-3"
+                data-id="{{id}}">Delete</button>
+        </div>
+        <div class="card-body">
+            <p class="card-text">{{content}}</p>
+            {{#if screenshot}}
+            <img id="post-img" src="{{screenshot}}" class="img-thumbnail rounded mx-auto d-block" alt="post-img">
+            {{/if}}
+            {{#if file}}
+            <pre><code class="mt-2">{{file}}</code></pre>
+            {{/if}}
+        </div>
+        <div class="card-footer">
+            <button id='likeBtn' class="btn btn-outline-info btn-sm" data-id="{{id}}"><i
+                    class="far fa-thumbs-up"></i>{{like}}</button>
+            <button id='dislikeBtn' class="btn btn-outline-info btn-sm" data-id="{{id}}"><i
+                    class="far fa-thumbs-down"></i>{{dislike}}</button>
+            <button id='commentBtn' class="btn btn-outline-info btn-sm"><i class="fa fa-comment"></i>
+                Comment</button>
+            <form class="new-comment-form m-2" hidden>
+                <div class="form-group mt-2 mb-2 pl-0">
+                    <textarea class="form-control comment pl-0" rows="2" required minlength="10"></textarea>
+                </div>
+                <button type="submit" class="submitBtn btn btn-warning btn-sm" value="{{id}}">Submit</button>
+            </form>
+            {{#each comments as |comment|}}
+            <div class="card mt-2 border-info">
+                <div class="card-header pt-0 pb-0">
+                    <!-- Pass time value to the helper functions -->
+                    <ul id="btn-list" class="float-left ml-0 pl-0 pt-1" style="height: 50px;">
+                        <li>
+                            <h5><b>{{comment.user.first_name}} {{comment.user.last_name}}</b></h5>
+                        </li>
+                        <li>
+                            <h6 class="text-muted">{{format_date comment.date}} {{format_time comment.date}}</h6>
+                        </li>
+                    </ul>
+                    <button id='delete-comment' type="button" class="btn btn-outline-warning float-right btn-sm mt-3"
+                        data-id="{{comment.id}}">Delete</button>
+                </div>
+                <div class="card-body">
+                    <p class="card-text">{{comment.content}}</p>
+                </div>
+            </div>
+            {{/each}}
+        </div>
+    </div>
+</div>
+{{/each }}
+{{/each }}
