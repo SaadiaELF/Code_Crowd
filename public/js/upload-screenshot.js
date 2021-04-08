@@ -1,3 +1,4 @@
+// Upload a screenshot on the click of the Add Screenshot button
 var myWidget2 = cloudinary.createUploadWidget({
     cloudName: 'birminghambcs',
     uploadPreset: 'gbw7i3gr'
@@ -10,6 +11,8 @@ var myWidget2 = cloudinary.createUploadWidget({
     }
 }
 )
+
+// Call button from the post-form.handlebars to apply function to
 document.getElementById("upload_img_widget").addEventListener("click", async function () {
     await myWidget2.open();
 

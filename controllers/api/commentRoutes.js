@@ -3,7 +3,7 @@ const router = require('express').Router();
 const { Comment } = require('../../models');
 const withAuth = require('../../utils/auth');
 
-// Get comments
+// Get all comments
 router.get('/', async (req, res) => {
     try {
         const commentData = await Comment.findAll();
@@ -36,6 +36,8 @@ router.post('/', async (req, res) => {
         res.status(400).json(err);
     }
 });
+
+// Delete a comment
 router.delete('/:id', async (req, res) => {
     // delete comment by id
     try {
@@ -55,5 +57,6 @@ router.delete('/:id', async (req, res) => {
         res.status(500).json("Error: Cannot delete the comment");
     }
 });
+
 // Export module
 module.exports = router;

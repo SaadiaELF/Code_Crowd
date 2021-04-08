@@ -22,9 +22,10 @@ router.post('/', async (req, res) => {
 
 });
 
+// Add a like to a post
 router.put('/like/:id', async (req, res) => {
     // update post by id
-      try {
+    try {
         // console.log(req.body.imageUrl);
         const postData = await Post.update({
             like: req.body.like
@@ -46,9 +47,10 @@ router.put('/like/:id', async (req, res) => {
     }
 });
 
+// Add a dislike to a post
 router.put('/dislike/:id', async (req, res) => {
     // update post by id
-      try {
+    try {
         // console.log(req.body.imageUrl);
         const postData = await Post.update({
             dislike: req.body.dislike
@@ -69,6 +71,7 @@ router.put('/dislike/:id', async (req, res) => {
         res.status(500).json("Error: Cannot update the post");
     }
 });
+
 // Delete an existing post, by specific id
 router.delete('/:id', async (req, res) => {
     // delete post by id

@@ -1,5 +1,4 @@
-//click handler for log out button
-
+// Click handler for log out button
 const logoutClickHandler = async () => {
     const response = await fetch('/api/user/logout', {
         method: 'POST',
@@ -13,9 +12,9 @@ const logoutClickHandler = async () => {
     }
 };
 
-
+// Call button from the navbar.handlebars to apply function to
 document
-  .querySelector('#logout')
-  .addEventListener('click', logoutClickHandler);
+    .querySelector('#logout')
+    .addEventListener('click', logoutClickHandler);
 
 

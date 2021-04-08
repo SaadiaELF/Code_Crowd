@@ -1,3 +1,4 @@
+// Delete existing comment from a post, on the click of the deleting button
 const delCommentBtnHandler = async (event) => {
   if (event.target.matches('#delete-comment') && event.target.hasAttribute('data-id')) {
   
@@ -15,5 +16,6 @@ const delCommentBtnHandler = async (event) => {
   }
 };
 
+// Apply function to button
 document 
   .addEventListener('click', delCommentBtnHandler);

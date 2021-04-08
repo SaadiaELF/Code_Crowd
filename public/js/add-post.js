@@ -1,3 +1,4 @@
+// Add new post onto the feeds page on the click of the Post button
 const newPostHandler = async (event) => {
   event.preventDefault();
 
@@ -9,7 +10,7 @@ const newPostHandler = async (event) => {
     // Send a POST request to the API endpoint
     const response = await fetch('/api/post', {
       method: 'POST',
-      body: JSON.stringify({ content , screenshot, file}),
+      body: JSON.stringify({ content, screenshot, file }),
       headers: { 'Content-Type': 'application/json' },
     });
 
@@ -22,7 +23,7 @@ const newPostHandler = async (event) => {
   }
 };
 
-
+// Call button from the post-form.handlebars to apply function to
 document
   .querySelector('#postBtn')
   .addEventListener('click', newPostHandler);

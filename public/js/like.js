@@ -1,5 +1,7 @@
+// Like a post on the click of the like the post
 const likeBtnHandler = async (event) => {
 
+  // Increment likes for a post each time the button is clicked
   let like = parseInt(event.target.innerText);
   like = like + 1;
   const id = event.target.getAttribute("data-id");
@@ -19,12 +21,12 @@ const likeBtnHandler = async (event) => {
       alert('Failed to update post');
     }
   }
-  
+
 };
 
-
+// Apply the function to every existing like button, by looping through all of them (from the post-info.handlebars)
 var likeBtns = document.querySelectorAll('#likeBtn');
-  
-for (var i = 0 ; i < likeBtns.length ; i++){
+
+for (var i = 0; i < likeBtns.length; i++) {
   likeBtns[i].addEventListener('click', likeBtnHandler);
 }

@@ -1,3 +1,4 @@
+// Delete the post from the feeds page
 const delButtonHandler = async (event) => {
   if (event.target.matches('#delete-btn') && event.target.hasAttribute('data-id')) {
 
@@ -18,5 +19,6 @@ const delButtonHandler = async (event) => {
   }
 };
 
-document 
+// Apply function to button
+document
   .addEventListener('click', delButtonHandler);
