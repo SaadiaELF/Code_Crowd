@@ -2,6 +2,7 @@
 const router = require('express').Router();
 const { User, Post, Comment } = require('../models');
 const { Op } = require('sequelize');
+const withAuth = require('../utils/auth');
 
 // DEFINE ALL ROUTES BELOW
 
@@ -21,7 +22,7 @@ router.get('/', async (req, res) => {
 });
 
 // Gets post by id
-router.get('/post/:id', async (req, res) => {
+router.get('/post/:id', withAuth, async (req, res) => {
     try {
         // Render a single post on the page by its id
         const postData = await Post.findByPk(req.params.id, {
