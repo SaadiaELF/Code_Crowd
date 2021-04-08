@@ -167,34 +167,44 @@ router.put('/profile', async (req, res) => {
 
 
 // Render the feeds page
-router.get('/feeds', withAuth, async (req, res) => {
+router.get('/feeds', async (req, res) => {
     try {
-        const postData = await Post.findAll({
-            order: [
-                ['date', 'DESC'],
-            ],
+         const userData = await User.findByPk(req.session.user_id, {
             include: [
                 {
                     model: User,
-                    // add where : friend_id = req.session.user_id
-                },
-                {
-                    model: Comment,
+                    through: Friend,
+                    as: 'user_friend',
                     include: {
-                        model: User,
-                        attributes: ['id', 'first_name', 'last_name']
+                        model: Post,
+                        order: [
+                            ['date', 'DESC'],
+                        ],
+                        include: [
+                            {
+                                model: User,
+                            },
+                            {
+                                model: Comment,
+                                include: {
+                                    model: User,
+                                    attributes: ['id', 'first_name', 'last_name']
+                                },
+                            },
+                        ]
                     },
-                },
-            ],
+
+                }
+            ]
         });
-        const posts = postData.map((post) => post.get({ plain: true }));
-        res.render('feeds', { posts });
+
+        const user = userData.get({ plain: true });
+        res.render('feeds', { user });
     }
     catch (err) {
         console.log(err);
         res.status(500).json(err);
     }
-});
 
 // Render the friends page when friends button is clicked
 router.get('/friends', async (req, res) => {
