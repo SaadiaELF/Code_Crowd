@@ -3,10 +3,16 @@ const router = require('express').Router();
 const { Comment } = require('../../models');
 const withAuth = require('../../utils/auth');
 
-// Get all comments
+// Get comments
 router.get('/', async (req, res) => {
     try {
-        const commentData = await Comment.findAll();
+        const commentData = await Comment.findAll(
+            {
+                order: [
+                    ['date', 'DESC'],
+                ],
+            }
+        );
 
         if (!commentData) {
             res.status(404).json({ message: 'No comment found with this id' });
@@ -20,7 +26,7 @@ router.get('/', async (req, res) => {
 });
 
 // Create comment
-router.post('/', async (req, res) => {
+router.post('/', withAuth, async (req, res) => {
     try {
         const commentData = await Comment.create({
             // ...req.body,
@@ -36,8 +42,6 @@ router.post('/', async (req, res) => {
         res.status(400).json(err);
     }
 });
-
-// Delete a comment
 router.delete('/:id', async (req, res) => {
     // delete comment by id
     try {
@@ -57,6 +61,5 @@ router.delete('/:id', async (req, res) => {
         res.status(500).json("Error: Cannot delete the comment");
     }
 });
-
 // Export module
 module.exports = router;

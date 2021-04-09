@@ -1,14 +1,13 @@
 // Dependencies
 const router = require('express').Router();
-const { Friend, User } = require('../../models');
-const withAuth = require('../../utils/auth');
+const { Friend } = require('../../models');
 
 router.post('/', async (req, res) => {
     // create a new friend
     try {
         const newFriend = await Friend.create({
             friend_id: req.body.friend_id,
-            user_id: "89c4da20-a560-404d-8441-29287191c5ca"
+            user_id: req.session.user_id
         });
         res.status(200).json(newFriend);
     } catch (err) {
