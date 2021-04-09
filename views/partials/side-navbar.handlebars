@@ -1,0 +1,38 @@
+<!-- Navigation-->
+<nav class="navbar navbar-expand-lg navbar-dark bg-info fixed-top" id="sideNav">
+    <span class="d-none d-lg-block"><img class="img-fluid mx-auto mb-2" src="/images/logo.png "
+            alt="code-crowd" /></span>
+    <a class="navbar-brand js-scroll-trigger">
+        <span class="d-block d-lg-none">{{first_name}} {{last_name}}</span>
+        <span class="d-none d-lg-block"><img class="img-fluid img-profile rounded-circle mx-auto mb-2"
+                src={{profile_picture}} alt="profile-picture" /></span>
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span
+            class="navbar-toggler-icon"></span></button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav">
+            <li class="nav-item mt-2">
+                <button id="upload_widget" class="btn btn-warning mb-2 btn-sm" data-id="{{id}}">Upload photo</button>
+            </li>
+            <li class="nav-item mt-2">
+                <a href='/feeds' class="btn btn-warning mb-2 btn-sm"> <i class="fas fa-home"></i> Home </a>
+            </li>
+            <li class="mt-2">
+                <h3>{{first_name}} {{last_name}}</h3>
+            </li>
+            <li class="mt-1">
+                <h5>{{format_date date_of_birth}}</h5>
+            </li>
+            <li class="mt-1">
+                <h5>{{city}}, {{country}}</h5>
+            </li>
+            <li class="mt-1">
+                <h5>{{programming_languages}}</h5>
+            </li>
+            <li class="nav-item mt-1"><a class="btn btn-warning mb-2 btn-sm" href="/friends">Friends</a></li>
+            <li class="nav-item mt-1"><button class="btn btn-dark btn-sm" id="logout">Logout</button></li>
+
+        </ul>
+    </div>
+</nav>

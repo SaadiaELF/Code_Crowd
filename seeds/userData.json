@@ -1,0 +1,50 @@
+[
+	{
+		"id" : "165cc563-38a9-447b-a4a1-c65db0c090e3",
+		"first_name" : "Paul",
+		"last_name" : "Smith",
+		"email" : "paul@gmail.com",
+		"password" : "$2b$10$8oVvrOK7UoK6Y0Zt98yoh.Omc5/rUdca4djsgBOc8bBUuDUaq3Ij6",
+		"programming_languages" : "JS, NodeJs , JQuery",
+		"city" : "London",
+		"country" : "UK",
+		"profile_picture" : "https://res.cloudinary.com/birminghambcs/image/upload/v1617570986/user_a78tmx.png",
+		"date_of_birth" : "1994-03-17 00:00:00"
+	},
+	{
+		"id" : "2b3de219-bd19-4042-8442-7a0453bfc29d",
+		"first_name" : "Claire",
+		"last_name" : "Davies",
+		"email" : "claire@gmail.com",
+		"password" : "$2b$10$FxYNCfo87LEKfP4475wN6uzAUnheGEfR7Lz6mvRXwZ/rgWA.8E0xm",
+		"programming_languages" : "CSS, HTML, JS, NodeJS, JQuery",
+		"city" : "Birmingham",
+		"country" : "UK",
+		"profile_picture" : "http://res.cloudinary.com/birminghambcs/image/upload/v1617916173/jyhbjswrsrgv0wlcltvo.jpg",
+		"date_of_birth" : "1975-07-11 00:00:00"
+	},
+	{
+		"id" : "a4fb50ca-8918-4ba3-879c-d6bf48b4ce49",
+		"first_name" : "Maryum",
+		"last_name" : "Bokhari",
+		"email" : "maryum@gmail.com",
+		"password" : "$2b$10$RPALc5e/ggB.cIeDDUAOAumuI5yxjnH/VuChb5sHugixOhhDzv3f.",
+		"programming_languages" : "CSS, HTML, JS, NodeJS, JQuery, MySQL",
+		"city" : "Birmingham",
+		"country" : "UK",
+		"profile_picture" : "http://res.cloudinary.com/birminghambcs/image/upload/v1617926314/audm0mteeptqhqsqezcb.webp",
+		"date_of_birth" : "1997-06-20 00:00:00"
+	},
+	{
+		"id" : "d05ba31c-5af0-4db5-8dd0-e3d3b9734420",
+		"first_name" : "Salma",
+		"last_name" : "Rachid",
+		"email" : "salma@gmail.com",
+		"password" : "$2b$10$qNNGU.e3g0nLCCralXrMe.HQh0JhvresNGRA2Ms/tL00z2HWjwV2S",
+		"programming_languages" : "CSS, HTML, JS, NodeJS",
+		"city" : "Birmingham",
+		"country" : "UK",
+		"profile_picture" : "http://res.cloudinary.com/birminghambcs/image/upload/v1617915181/dqcfgc0pkzuoa7lvhhc6.png",
+		"date_of_birth" : "1997-06-05 00:00:00"
+	}
+]

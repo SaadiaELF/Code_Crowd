@@ -1,0 +1,243 @@
+/* body styling */
+body {
+    font-family: 'Titillium Web', sans-serif , Georgia, 'Times New Roman', Times, serif;
+    background-color: #ecedf1;
+    background-size: cover;
+}
+/* Navbar styling */
+nav {
+    opacity: 90%;
+    font-family: 'Share Tech Mono', monospace, Georgia, 'Times New Roman', Times;
+    font-weight: bold;
+}
+.navbar-brand{
+    font-family: 'Anton', sans-serif, Georgia, 'Times New Roman', Times, serif;
+}
+
+.card{
+    font-family: 'Titillium Web', sans-serif , Georgia, 'Times New Roman', Times, serif;
+    font-weight: 500;
+}
+
+/* styling footer */
+footer {
+    padding: 0.6rem 0;
+    background-color: rgb(196, 205, 214);
+    margin-bottom: 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+footer p {
+    font-family: 'Fira Sans Condensed', sans-serif, Georgia, 'Times New Roman', Times, serif;
+    font-size: 1rem;
+    line-height: 1.5rem; 
+    margin-bottom: 0;
+}
+.card span {
+    display: inline-block;
+    width: 200px;
+  }
+  #profile-img{
+      width: 50px;
+      height: auto;
+  }
+  #btn-list{
+    list-style-type: none;
+  }
+  #name-surname{
+    font-weight: bold;
+    line-height: 3rem;
+  }
+  #post-img{
+    width: 500px;
+    height: auto;
+}
+
+@media (min-width: 992px) {
+  #profile-page{
+    padding-top: 0;
+    padding-left: 17rem;
+  }
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  text-transform: uppercase;
+}
+
+h1 {
+  line-height: 1;
+}
+
+p.lead {
+  font-size: 1.15rem;
+  font-weight: 400;
+}
+
+.subheading {
+  font-family: "Saira Extra Condensed", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  text-transform: uppercase;
+  font-weight: 500;
+  font-size: 1.5rem;
+}
+
+#sideNav .navbar-nav .nav-item .nav-link {
+  font-weight: 800;
+  letter-spacing: 0.05rem;
+  text-transform: uppercase;
+}
+
+@media (min-width: 992px) {
+  #sideNav {
+    text-align: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    width: 20rem;
+    height: 100vh;
+  }
+  #sideNav .navbar-brand {
+    display: flex;
+    margin: auto auto 0;
+    padding: 0.5rem;
+  }
+  #sideNav .navbar-brand .img-profile {
+    max-width: 10rem;
+    max-height: 10rem;
+    border: 0.5rem solid rgba(255, 255, 255, 0.2);
+  }
+  #sideNav .navbar-collapse {
+    display: flex;
+    align-items: flex-start;
+    flex-grow: 0;
+    width: 100%;
+    margin-bottom: auto;
+  }
+  #sideNav .navbar-collapse .navbar-nav {
+    flex-direction: column;
+    width: 100%;
+  }
+  #sideNav .navbar-collapse .navbar-nav .nav-item {
+    display: block;
+  }
+  #sideNav .navbar-collapse .navbar-nav .nav-item .nav-link {
+    display: block;
+  }
+}
+.social-icons .social-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 3.5rem;
+  width: 3.5rem;
+  background-color: #495057;
+  color: #fff;
+  border-radius: 100%;
+  font-size: 1.5rem;
+  margin-right: 1.5rem;
+}
+.social-icons .social-icon:last-child {
+  margin-right: 0;
+}
+.social-icons .social-icon:hover {
+  background-color: #bd5d38;
+}
+
+.dev-icons {
+  font-size: 3rem;
+}
+
+section.profile-section {
+  display: flex;
+  align-items: center;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+  max-width: 75rem;
+}
+section.profile-section .profile-section-content {
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  section.profile-section {
+    min-height: 100vh;
+  }
+}
+@media (min-width: 992px) {
+  section.profile-section {
+    padding-left: 3rem;
+    padding-right: 3rem;
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+  }
+}
+* {
+    box-sizing: border-box;
+  }
+  
+  body {
+    margin: 0;
+    font-family: Arial;
+  }
+  
+  .header {
+    text-align: center;
+    padding: 32px;
+  }
+  
+  .row {
+    display: -ms-flexbox; /* IE10 */
+    display: flex;
+    -ms-flex-wrap: wrap; /* IE10 */
+    flex-wrap: wrap;
+    padding: 0 4px;
+  }
+  
+  /* Create four equal columns that sits next to each other */
+  .column {
+    -ms-flex: 25%; /* IE10 */
+    flex: 25%;
+    max-width: 25%;
+    padding: 0 4px;
+  }
+  
+  .column img {
+    margin-top: 8px;
+    vertical-align: middle;
+  }
+  
+  /* Responsive layout - makes a two column-layout instead of four columns */
+  @media screen and (max-width: 800px) {
+    .column {
+      -ms-flex: 50%;
+      flex: 50%;
+      max-width: 50%;
+    }
+  }
+  
+  /* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+  @media screen and (max-width: 600px) {
+    .column {
+      -ms-flex: 100%;
+      flex: 100%;
+      max-width: 100%;
+    }
+  }
+  pre code {
+    background-color: #eee;
+    border: 1px solid #999;
+    display: block;
+    padding: 20px;
+  }
+
+  .hide {
+    visibility: hidden;;
+  }

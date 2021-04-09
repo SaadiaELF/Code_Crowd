@@ -1,0 +1,17 @@
+<div class="row d-flex justify-content-center mb-3">
+    <div class="post-form card w-75">
+        <div class="card-header pb-0">
+            <img id="profile-img" src={{profile_picture}} class="rounded float-left" alt="profile-img">
+            <h5 id="name-surname" class="float-left pl-3">{{first_name}} {{last_name}}</h5>
+        </div>
+        <div class="card-body">
+            <textarea class="form-control mb-1" id="content" rows="3" minlength="20"></textarea>
+            <code><textarea class="form-control mb-1" id="code" rows="5" minlength="20" hidden></textarea></code>
+            <img id="img_preview" src="" class="img-thumbnail rounded mx-auto p-0 d-block hide" alt="post-img">
+            <p id='screenshot_url' hidden></p>
+            <button id="upload_img_widget" class="btn btn-info btn-sm">+ Add Screenshot</button>
+            <button id="code_snippet" class="btn btn-info btn-sm">+ Code snippet </button>
+            <button id='postBtn' type="submit" class="btn btn-warning btn-sm">Post</button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,36 @@
+{
+  "name": "Code_Crowd",
+  "version": "1.0.0",
+  "description": "## 🔍 Description This repository contains the second project assigned to us by the Coding Bootcamp at University of Birmingham. In this project, the team members collaboratively worked on creating a very distict and novel social media application for computer programmers, exclusively. Using this app, programmers are able to befriend and communicate with other coders, and exchange posts related to code in various programming languages, in the form of screenshots and code snippets.",
+  "main": "server.js",
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "cloudinary": "^1.25.1",
+    "connect-session-sequelize": "^7.1.1",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "express-handlebars": "^5.3.0",
+    "express-session": "^1.17.1",
+    "multer": "^1.4.2",
+    "mysql2": "^2.2.5",
+    "sequelize": "^6.6.2",
+    "uuid": "^8.3.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "seed": "node seeds/seed.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lukedesmond/project-2.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lukedesmond/project-2/issues"
+  },
+  "homepage": "https://github.com/lukedesmond/project-2#readme",
+  "keywords": []
+}

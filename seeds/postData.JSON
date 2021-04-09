@@ -1,0 +1,42 @@
+[
+	{
+		"id" : "255bd41f-bfde-495c-9e5b-1ba19cbc2d71",
+		"content" : "Hello , How can I add a user authentication to this route ?",
+		"date" : "2021-04-08 23:57:00",
+		"screenshot" : "https://res.cloudinary.com/birminghambcs/image/upload/v1617926179/f6anhgsuttxxhkz037zj.jpg",
+		"file" : "",
+		"like" : 2,
+		"dislike" : 0,
+		"user_id" : "a4fb50ca-8918-4ba3-879c-d6bf48b4ce49"
+	},
+	{
+		"id" : "9e062738-20b5-4787-adb5-a6fc67558a6e",
+		"content" : "Please check this code for me !",
+		"date" : "2021-04-08 20:53:46",
+		"screenshot" : "https://res.cloudinary.com/birminghambcs/image/upload/v1617915197/cy1poflyii3ta20brxxv.jpg",
+		"file" : "",
+		"like" : 4,
+		"dislike" : 0,
+		"user_id" : "d05ba31c-5af0-4db5-8dd0-e3d3b9734420"
+	},
+	{
+		"id" : "bf29e5ce-89e5-4f6c-8e52-43a42ee426e6",
+		"content" : "Hi I'm Paul, I'm new to this platform. I would like to find friends with similar interest ! :D",
+		"date" : "2021-04-08 21:04:53",
+		"screenshot" : "",
+		"file" : "",
+		"like" : 4,
+		"dislike" : 0,
+		"user_id" : "165cc563-38a9-447b-a4a1-c65db0c090e3"
+	},
+	{
+		"id" : "eea65250-d68e-45d6-8cca-29ebfad861de",
+		"content" : "This how I connect database to the server:",
+		"date" : "2021-04-08 21:07:32",
+		"screenshot" : "",
+		"file" : "// Dependencies\nconst Sequelize = require('sequelize');\nrequire('dotenv').config();\n\nlet sequelize;\n\nif (process.env.JAWSDB_URL) {\n  sequelize = new Sequelize(process.env.JAWSDB_URL);\n} else {\n  sequelize = new Sequelize(\n    process.env.DB_NAME,\n    process.env.DB_USER,\n    process.env.DB_PASSWORD,\n    {\n      host: 'localhost',\n      dialect: 'mysql',\n      port: 3306\n    }\n  );\n}\n// Export module\nmodule.exports = sequelize;",
+		"like" : 4,
+		"dislike" : 1,
+		"user_id" : "2b3de219-bd19-4042-8442-7a0453bfc29d"
+	}
+]

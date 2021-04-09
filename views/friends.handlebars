@@ -1,0 +1,12 @@
+<main id="friends-page">
+    {{> side-navbar user}}
+    <div class="container-fluid d-flex justify-content-center ml-5 pl-5">
+        <section class="profile-section">
+            <div class="row profile-section-content">
+                {{#each friends as |friend|}}
+                {{> friend}}
+                {{/each}}
+            </div>
+        </section>
+    </div>
+</main>

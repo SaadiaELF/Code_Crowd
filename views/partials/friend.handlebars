@@ -1,0 +1,12 @@
+{{#each user_friend}}
+<div class="col-sm d-flex justify-content-center mb-3">
+    <div class="friend-card card border-info" style="width: 200px;">
+        <img id="profile-img" src="{{profile_picture}}" class="card-img-top mx-auto rounded mt-2"
+            alt="profile-img">
+        <div class="card-body">
+            <h5 class="card-title mt-0 mb-0 text-center"><b>{{first_name}} {{last_name}}</b>
+            </h5>
+        </div>
+    </div>
+</div>
+{{/each}}

@@ -1,0 +1,37 @@
+[
+	{
+		"id" : "0b5e9e4a-910b-4e76-8d0e-9365d3512fc7",
+		"content" : "You don't need to add the second line !",
+		"date" : "2021-04-08 23:53:27",
+		"user_id" : "2b3de219-bd19-4042-8442-7a0453bfc29d",
+		"post_id" : "9e062738-20b5-4787-adb5-a6fc67558a6e"
+	},
+	{
+		"id" : "0f04cdb9-3c95-446f-adb7-b56bfbc8e54e",
+		"content" : "Hello Paul !",
+		"date" : "2021-04-08 23:59:28",
+		"user_id" : "a4fb50ca-8918-4ba3-879c-d6bf48b4ce49",
+		"post_id" : "bf29e5ce-89e5-4f6c-8e52-43a42ee426e6"
+	},
+	{
+		"id" : "7a2752eb-2f9b-4c53-92a2-938d737dbfe7",
+		"content" : "Nothing wrong with it !",
+		"date" : "2021-04-08 21:04:36",
+		"user_id" : "165cc563-38a9-447b-a4a1-c65db0c090e3",
+		"post_id" : "9e062738-20b5-4787-adb5-a6fc67558a6e"
+	},
+	{
+		"id" : "8c6cd9ad-9f67-4672-98fd-4d6d9be6419c",
+		"content" : "You can use  create a function and use it as a middleware of this route.",
+		"date" : "2021-04-09 00:02:02",
+		"user_id" : "2b3de219-bd19-4042-8442-7a0453bfc29d",
+		"post_id" : "255bd41f-bfde-495c-9e5b-1ba19cbc2d71"
+	},
+	{
+		"id" : "9feb46a7-45fd-49e0-9b4b-0a18041b594f",
+		"content" : "Welcome Paul !",
+		"date" : "2021-04-08 23:52:38",
+		"user_id" : "2b3de219-bd19-4042-8442-7a0453bfc29d",
+		"post_id" : "bf29e5ce-89e5-4f6c-8e52-43a42ee426e6"
+	}
+]
