@@ -27,11 +27,11 @@
                     class="far fa-thumbs-up"></i>{{like}}</button>
             <button id='dislikeBtn' class="btn btn-outline-info btn-sm" data-id="{{id}}"><i
                     class="far fa-thumbs-down"></i>{{dislike}}</button>
-            <button id='commentBtn' class="btn btn-outline-info btn-sm"><i class="fa fa-comment"></i>
+            <button class="commentBtn btn btn-outline-info btn-sm"><i class="fa fa-comment"></i>
                 Comment</button>
             <form class="new-comment-form m-2" hidden>
                 <div class="form-group mt-2 mb-2 pl-0">
-                    <textarea class="form-control comment pl-0" rows="2" required minlength="10"></textarea>
+                    <textarea class="form-control comment pl-0" rows="2" required ></textarea>
                 </div>
                 <button type="submit" class="submitBtn btn btn-warning btn-sm" value="{{id}}">Submit</button>
             </form>
