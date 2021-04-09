@@ -18,7 +18,7 @@ Profile Page:
 <br></br>
 
 Feed Page:
-![Feed page](https://user-images.githubusercontent.com/73832871/114179668-2fda0380-9937-11eb-93b1-868fdbbfe9d4.png)
+![Feed page](https://user-images.githubusercontent.com/73832871/114184272-8d248380-993c-11eb-8f24-18a187b510ad.png)
 <br></br>
 
 ## Table of Contents
