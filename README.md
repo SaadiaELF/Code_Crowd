@@ -9,15 +9,15 @@ The following link redirects you to the deployed app on Heroku:
 
 Here are some screenshots of how the main pages look on the deployed app:
 
-<b>Landing Page:<b>
+<b>Landing Page:</b>
 ![Landing page](https://user-images.githubusercontent.com/73832871/114179584-16d15280-9937-11eb-9864-262c0098576b.png)
 <br></br>
 
-<b>Profile Page:<b>
+<b>Profile Page:</b>
 ![Profile page](https://user-images.githubusercontent.com/73832871/114179648-294b8c00-9937-11eb-9abf-97841e232dba.png)
 <br></br>
 
-<b>Feed Page:<b>
+<b>Feed Page:</b>
 ![Feed page](https://user-images.githubusercontent.com/73832871/114179668-2fda0380-9937-11eb-93b1-868fdbbfe9d4.png)
 <br></br>
 
