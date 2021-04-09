@@ -84,14 +84,16 @@ If you have any questions, contact us using the following contact information.<b
 <br />
 Find us on GitHub:<br />
 <br />
-[Maryum97](https://github.com/Maryum97)
-[SaadiaELF](https://github.com/SaadiaELF)
+[Maryum97](https://github.com/Maryum97)<br />
+<br />
+[SaadiaELF](https://github.com/SaadiaELF)<br />
+<br />
 [Claire Davies](https://github.com/ClaireMDavies)<br />
 <br />
 Email us with any questions<br />
 <br />
-maryumbokhari97@gmail.com
-saadiaelfekak@gmail.com
+maryumbokhari97@gmail.com<br /><br />
+saadiaelfekak@gmail.com<br /><br />
 claire.davies@junitech.com<br /><br />
 
 
