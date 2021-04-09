@@ -59,7 +59,7 @@ User.init(
         },
         profile_picture: {
             type: DataTypes.STRING,
-            defaultValue: 'https://res.cloudinary.com/birminghambcs/image/upload/v1617570986/user_a78tmx.png',
+            defaultValue: 'https://res.cloudinary.com/birminghambcs/image/upload/v1617972284/user_bb2xva.png',
         },
         date_of_birth: {
             type: DataTypes.DATE
