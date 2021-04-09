@@ -10,12 +10,12 @@ const newPostHandler = async (event) => {
     // Send a POST request to the API endpoint
     const response = await fetch('/api/post', {
       method: 'POST',
-      body: JSON.stringify({ content, screenshot, file }),
+      body: JSON.stringify({ content , screenshot, file}),
       headers: { 'Content-Type': 'application/json' },
     });
 
     if (response.ok) {
-      // If successful, redirect the browser to the dashboard page
+      // If successful, reload page
       document.location.reload();
     } else {
       alert('Failed to create a post');

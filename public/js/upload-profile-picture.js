@@ -6,11 +6,13 @@ var myWidget = cloudinary.createUploadWidget({
     if (!error && result && result.event === "success") {
         const imageUrl = result.info.url;
         async function fetchAsync() {
-            const response = await fetch('/profile/bcec3b1b-3814-4a4b-b27d-1b3aca3f4097', {
+            const id = document.getElementById("upload_widget").getAttribute('data-id');
+            const response = await fetch(`/profile/${id}`, {
                 method: 'PUT',
-                body: JSON.stringify({ imageUrl }),
+                body: JSON.stringify({ imageUrl, id }),
                 headers: { 'Content-Type': 'application/json' },
-            })
+            });
+
             if (response.ok) {
                 // If successful, redirect the browser to the dashboard page
                 document.location.reload();
@@ -19,7 +21,6 @@ var myWidget = cloudinary.createUploadWidget({
             }
         };
         fetchAsync();
-
     }
 }
 )

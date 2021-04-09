@@ -15,16 +15,16 @@ const dislikeBtnHandler = async (event) => {
     });
 
     if (response.ok) {
-      // If successful, redirect the browser to the dashboard page
+      // If successful, reload page
       document.location.reload();
     } else {
-      alert('Failed to update post');
+      alert('Failed to add dislike');
     }
   }
 };
 
 // Apply the function to every existing dislike button, by looping through all of them (from the post-info.handlebars)
 var dislikeBtns = document.querySelectorAll('#dislikeBtn');
-for (var i = 0; i < dislikeBtns.length; i++) {
+for (var i = 0 ; i < dislikeBtns.length ; i++){
   dislikeBtns[i].addEventListener('click', dislikeBtnHandler)
 }

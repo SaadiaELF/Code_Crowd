@@ -15,10 +15,10 @@ const likeBtnHandler = async (event) => {
     });
 
     if (response.ok) {
-      // If successful, redirect the browser to the dashboard page
+      // If successful, reload page
       document.location.reload();
     } else {
-      alert('Failed to update post');
+      alert('Failed to add like');
     }
   }
 
@@ -26,7 +26,7 @@ const likeBtnHandler = async (event) => {
 
 // Apply the function to every existing like button, by looping through all of them (from the post-info.handlebars)
 var likeBtns = document.querySelectorAll('#likeBtn');
-
-for (var i = 0; i < likeBtns.length; i++) {
+  
+for (var i = 0 ; i < likeBtns.length ; i++){
   likeBtns[i].addEventListener('click', likeBtnHandler);
 }

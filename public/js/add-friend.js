@@ -9,7 +9,7 @@ const addFriendHandler = async (event) => {
     // Send a POST request to the API endpoint
     const response = await fetch('/api/friend', {
       method: 'POST',
-      body: JSON.stringify({ friend_id }),
+      body: JSON.stringify({friend_id}),
       headers: { 'Content-Type': 'application/json' },
     });
 
@@ -20,12 +20,11 @@ const addFriendHandler = async (event) => {
       alert('Already added as a friend !');
     }
   }
-
 };
 
 // Apply above function to ALL FRIEND ACCOUNTS in the search results, by looping through all of them (from the user.handlebars)
-var friendBtns = document.querySelectorAll('#addFriend');
+var friendBtns = document.querySelectorAll('.addFriend');
 
-for (var i = 0; i < friendBtns.length; i++) {
+for (var i = 0 ; i < friendBtns.length ; i++){
   friendBtns[i].addEventListener('click', addFriendHandler);
 }

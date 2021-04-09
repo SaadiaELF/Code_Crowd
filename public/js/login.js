@@ -19,7 +19,7 @@ const loginClickHandler = async (event) => {
         if (response.ok) {
             document.location.replace('/profile');
         } else {
-            alert(response.statusText);
+            alert('failed to login');
         }
     }
 };
