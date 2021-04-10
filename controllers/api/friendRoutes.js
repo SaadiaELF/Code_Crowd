@@ -2,8 +2,9 @@
 const router = require('express').Router();
 const { Friend } = require('../../models');
 
+// create a new friend
 router.post('/', async (req, res) => {
-    // create a new friend
+
     try {
         const newFriend = await Friend.create({
             friend_id: req.body.friend_id,

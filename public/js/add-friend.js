@@ -14,7 +14,7 @@ const addFriendHandler = async (event) => {
     });
 
     if (response.ok) {
-      // If successful, redirect the browser to the dashboard page
+      // If successful, redirect the browser to the friends page
       document.location.replace('/friends');
     } else {
       alert('Already added as a friend !');
