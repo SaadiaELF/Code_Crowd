@@ -48,9 +48,9 @@ router.put('/like/:id', async (req, res) => {
 
 // Add a dislike to a post
 router.put('/dislike/:id', async (req, res) => {
-    // update post by id
+    
     try {
-        // console.log(req.body.imageUrl);
+       
         const postData = await Post.update({
             dislike: req.body.dislike
         },
