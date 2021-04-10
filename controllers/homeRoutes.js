@@ -20,7 +20,7 @@ router.get('/', async (req, res) => {
     }
 });
 
-
+//render profile page
 router.get('/profile', async (req, res) => {
     try {
         const postData = await Post.findAll({
@@ -145,6 +145,7 @@ router.get('/feeds', async (req, res) => {
     }
 });
 
+//render the friends page
 router.get('/friends', async (req, res) => {
     try {
         const friendData = await User.findAll({
