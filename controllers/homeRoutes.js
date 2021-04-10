@@ -20,52 +20,7 @@ router.get('/', async (req, res) => {
     }
 });
 
-// Gets post by id
-router.get('/post/:id', async (req, res) => {
-    try {
-        // Render a single post on the page by its id
-        const postData = await Post.findByPk(req.params.id, {
-            include: [
-                {
-                    model: User,
-                    attributes: ['name']
-                },
-                {
-                    model: Comment,
-                    attributes: ['id', 'text', 'post_id', 'user_id'],
-                    include: [
-                        {
-                            model: User,
-                            attributes: ['name'],
-                        },
-                        {
-                            model: Post,
-                            attributes: ['date_created']
-                        }
-                    ]
-                }
-            ]
-        })
 
-        // if no post by that id exists, return an error
-        if (!postData) {
-            res.status(404).json({ message: 'No post found with this id' });
-            return;
-        }
-
-        // serialize the post data, removing extra sequelize meta data
-        const post = postData.get({ plain: true });
-
-        // pass the posts and a session variable into the single post template
-        res.render('single-post', {
-            post,
-            loggedIn: req.session.loggedIn
-        });
-    } catch (err) {
-        res.status(500).json("Error: Cannot render the page");
-    }
-
-});
 router.get('/profile', async (req, res) => {
     try {
         const postData = await Post.findAll({
@@ -100,31 +55,6 @@ router.get('/profile', async (req, res) => {
     }
 });
 
-
-router.put('/profile/:id', async (req, res) => {
-    // update post by id
-    try {
-
-        const userData = await User.update({
-            profile_picture: req.body.imageUrl
-        },
-            {
-                where: {
-                    id: req.body.id
-                },
-            });
-
-        if (!userData) {
-            res.status(404).json({ message: 'No post found with this id!' });
-            return;
-        }
-
-        res.status(200).json('success');
-    } catch (err) {
-        console.log(err)
-        res.status(500).json("Error: Cannot update the post");
-    }
-});
 
 // Get users in the search results to make friends with
 router.get('/search/:search', async (req, res) => {
@@ -214,6 +144,53 @@ router.get('/friends', async (req, res) => {
         console.log(err);
         res.status(500).json(err);
     }
+});
+
+// Gets post by id
+router.get('/post/:id', async (req, res) => {
+    try {
+        // Render a single post on the page by its id
+        const postData = await Post.findByPk(req.params.id, {
+            include: [
+                {
+                    model: User,
+                    attributes: ['name']
+                },
+                {
+                    model: Comment,
+                    attributes: ['id', 'text', 'post_id', 'user_id'],
+                    include: [
+                        {
+                            model: User,
+                            attributes: ['name'],
+                        },
+                        {
+                            model: Post,
+                            attributes: ['date_created']
+                        }
+                    ]
+                }
+            ]
+        })
+
+        // if no post by that id exists, return an error
+        if (!postData) {
+            res.status(404).json({ message: 'No post found with this id' });
+            return;
+        }
+
+        // serialize the post data, removing extra sequelize meta data
+        const post = postData.get({ plain: true });
+
+        // pass the posts and a session variable into the single post template
+        res.render('single-post', {
+            post,
+            loggedIn: req.session.loggedIn
+        });
+    } catch (err) {
+        res.status(500).json("Error: Cannot render the page");
+    }
+
 });
 
 // Export the module
