@@ -56,7 +56,7 @@ router.get('/profile', async (req, res) => {
 });
 
 
-// Get users in the search results to make friends with
+// Get user by search term
 router.get('/search/:search', async (req, res) => {
     try {
         const usersData = await User.findAll({
