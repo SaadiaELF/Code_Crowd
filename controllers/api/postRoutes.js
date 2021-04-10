@@ -23,9 +23,9 @@ router.post('/', async (req, res) => {
 
 // Add a like to a post
 router.put('/like/:id', async (req, res) => {
-    // update post by id
+    
     try {
-        // console.log(req.body.imageUrl);
+       
         const postData = await Post.update({
             like: req.body.like
         },
