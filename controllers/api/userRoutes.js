@@ -21,32 +21,6 @@ router.post('/', async (req, res) => {
     }
 });
 
-// update user profile picture
-router.put('/profile/:id', async (req, res) => {
-    
-    try {
-
-        const userData = await User.update({
-            profile_picture: req.body.imageUrl
-        },
-            {
-                where: {
-                    id: req.body.id
-                },
-            });
-
-        if (!userData) {
-            res.status(404).json({ message: 'No user found with this id!' });
-            return;
-        }
-
-        res.status(200).json('success');
-    } catch (err) {
-        console.log(err)
-        res.status(500).json("Error: Cannot update the user");
-    }
-});
-
 // When user logs in, credentials are saved and allows user to access page
 // only if credentials are correct!
 router.post('/login', async (req, res) => {
