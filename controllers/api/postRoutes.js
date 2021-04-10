@@ -4,7 +4,7 @@ const { Post } = require('../../models');
 
 // Create a new post
 router.post('/', async (req, res) => {
-    
+
     console.log(req.session.user_id)
     try {
         const newPost = await Post.create({
@@ -23,9 +23,9 @@ router.post('/', async (req, res) => {
 
 // Add a like to a post
 router.put('/like/:id', async (req, res) => {
-    
+
     try {
-       
+
         const postData = await Post.update({
             like: req.body.like
         },
@@ -48,9 +48,9 @@ router.put('/like/:id', async (req, res) => {
 
 // Add a dislike to a post
 router.put('/dislike/:id', async (req, res) => {
-    
+
     try {
-       
+
         const postData = await Post.update({
             dislike: req.body.dislike
         },
@@ -71,9 +71,9 @@ router.put('/dislike/:id', async (req, res) => {
     }
 });
 
-// Delete an existing post, by specific id
+// Delete an existing post, by specific id and specific user id
 router.delete('/:id', async (req, res) => {
-    // delete post by id
+
     try {
         const postData = await Post.destroy({
             where: {
