@@ -12,7 +12,7 @@ const searchHandler = async (event) => {
     });
 
     if (response.ok) {
-      // If successful, redirect the browser to the dashboard page
+      // If successful, redirect the browser to the search page
       document.location.replace(`/search/${search}`);
     } else {
       alert('Error');

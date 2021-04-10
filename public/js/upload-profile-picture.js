@@ -14,7 +14,7 @@ var myWidget = cloudinary.createUploadWidget({
             });
 
             if (response.ok) {
-                // If successful, redirect the browser to the dashboard page
+                // If successful, reload page
                 document.location.reload();
             } else {
                 alert('Failed to update image');

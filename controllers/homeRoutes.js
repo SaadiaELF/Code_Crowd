@@ -20,52 +20,7 @@ router.get('/', async (req, res) => {
     }
 });
 
-// Gets post by id
-router.get('/post/:id', async (req, res) => {
-    try {
-        // Render a single post on the page by its id
-        const postData = await Post.findByPk(req.params.id, {
-            include: [
-                {
-                    model: User,
-                    attributes: ['name']
-                },
-                {
-                    model: Comment,
-                    attributes: ['id', 'text', 'post_id', 'user_id'],
-                    include: [
-                        {
-                            model: User,
-                            attributes: ['name'],
-                        },
-                        {
-                            model: Post,
-                            attributes: ['date_created']
-                        }
-                    ]
-                }
-            ]
-        })
-
-        // if no post by that id exists, return an error
-        if (!postData) {
-            res.status(404).json({ message: 'No post found with this id' });
-            return;
-        }
-
-        // serialize the post data, removing extra sequelize meta data
-        const post = postData.get({ plain: true });
-
-        // pass the posts and a session variable into the single post template
-        res.render('single-post', {
-            post,
-            loggedIn: req.session.loggedIn
-        });
-    } catch (err) {
-        res.status(500).json("Error: Cannot render the page");
-    }
-
-});
+//render profile page
 router.get('/profile', async (req, res) => {
     try {
         const postData = await Post.findAll({
@@ -100,9 +55,9 @@ router.get('/profile', async (req, res) => {
     }
 });
 
-
+// update user profile picture
 router.put('/profile/:id', async (req, res) => {
-    // update post by id
+    
     try {
 
         const userData = await User.update({
@@ -115,18 +70,18 @@ router.put('/profile/:id', async (req, res) => {
             });
 
         if (!userData) {
-            res.status(404).json({ message: 'No post found with this id!' });
+            res.status(404).json({ message: 'No user found with this id!' });
             return;
         }
 
         res.status(200).json('success');
     } catch (err) {
         console.log(err)
-        res.status(500).json("Error: Cannot update the post");
+        res.status(500).json("Error: Cannot update the user");
     }
 });
 
-// Get users in the search results to make friends with
+// Get user by search term
 router.get('/search/:search', async (req, res) => {
     try {
         const usersData = await User.findAll({
@@ -190,6 +145,7 @@ router.get('/feeds', async (req, res) => {
     }
 });
 
+//render the friends page
 router.get('/friends', async (req, res) => {
     try {
         const friendData = await User.findAll({
@@ -214,6 +170,53 @@ router.get('/friends', async (req, res) => {
         console.log(err);
         res.status(500).json(err);
     }
+});
+
+// Gets post by id
+router.get('/post/:id', async (req, res) => {
+    try {
+        // Render a single post on the page by its id
+        const postData = await Post.findByPk(req.params.id, {
+            include: [
+                {
+                    model: User,
+                    attributes: ['name']
+                },
+                {
+                    model: Comment,
+                    attributes: ['id', 'text', 'post_id', 'user_id'],
+                    include: [
+                        {
+                            model: User,
+                            attributes: ['name'],
+                        },
+                        {
+                            model: Post,
+                            attributes: ['date_created']
+                        }
+                    ]
+                }
+            ]
+        })
+
+        // if no post by that id exists, return an error
+        if (!postData) {
+            res.status(404).json({ message: 'No post found with this id' });
+            return;
+        }
+
+        // serialize the post data, removing extra sequelize meta data
+        const post = postData.get({ plain: true });
+
+        // pass the posts and a session variable into the single post template
+        res.render('single-post', {
+            post,
+            loggedIn: req.session.loggedIn
+        });
+    } catch (err) {
+        res.status(500).json("Error: Cannot render the page");
+    }
+
 });
 
 // Export the module
