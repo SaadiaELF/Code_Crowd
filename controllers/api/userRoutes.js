@@ -36,14 +36,14 @@ router.put('/profile/:id', async (req, res) => {
             });
 
         if (!userData) {
-            res.status(404).json({ message: 'No post found with this id!' });
+            res.status(404).json({ message: 'No user found with this id!' });
             return;
         }
 
         res.status(200).json('success');
     } catch (err) {
         console.log(err)
-        res.status(500).json("Error: Cannot update the post");
+        res.status(500).json("Error: Cannot update the user");
     }
 });
 
