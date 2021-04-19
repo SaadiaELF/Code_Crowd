@@ -3,9 +3,10 @@ const path = require('path');
 const express = require('express');
 const session = require('express-session');
 const exphbs = require('express-handlebars');
+const compression = require('compression');
 
-const routes = require ('./controllers');
-const helpers = require ('./utils/helpers.js');
+const routes = require('./controllers');
+const helpers = require('./utils/helpers.js');
 const sequelize = require('./config/connection');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
@@ -33,6 +34,27 @@ const sess = {
     })
 };
 
+// compress all responses
+app.use(compression());
+
+// server-sent event stream
+app.get('/events', function (req, res) {
+    res.setHeader('Content-Type', 'text/event-stream')
+    res.setHeader('Cache-Control', 'no-cache')
+
+    // send a ping approx every 2 seconds
+    var timer = setInterval(function () {
+        res.write('data: ping\n\n')
+
+        // !!! this is the important part
+        res.flush()
+    }, 2000)
+
+    res.on('close', function () {
+        clearInterval(timer)
+    })
+})
+
 app.use(session(sess));
 
 app.engine('handlebars', hbs.engine);
@@ -45,7 +67,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(routes);
 
 // Make app listen on port
-sequelize.sync({ force: false}).then(() => {
+sequelize.sync({ force: false }).then(() => {
 
 
     app.listen(PORT, () => console.log(`Now listening on port: ${PORT}`));
